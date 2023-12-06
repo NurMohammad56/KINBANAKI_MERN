@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a39608-2170-4054-a7f3-29482a795da6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/CartModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/CategoryModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/FeaturesModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/InvoiceModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/InvoiceProductModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/PaymentSettingModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ProductModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ProductSliderModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ProfileModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ReviewModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/UserModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/WishModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/productDetailModel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/brandsModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BrandModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BrandModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BrandModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/CategoryModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CategoryModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ProductModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProductModel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701767335097</updated>
-      <workItem from="1701767338479" duration="3701000" />
+      <workItem from="1701767338479" duration="5545000" />
     </task>
     <servers />
   </component>

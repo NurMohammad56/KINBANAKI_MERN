@@ -5,25 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a39608-2170-4054-a7f3-29482a795da6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/cartListController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/feturesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/invoiceController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/productContoller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/userController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/wishController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/cartListServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/feturesServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/invoiceServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/productServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/userServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/wishServices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BrandModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BrandModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ProductDetailModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProductDetailModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ProductSliderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProductSliderModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/route/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/productServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/productServices.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +71,7 @@
       <updated>1701767335097</updated>
       <workItem from="1701767338479" duration="13490000" />
       <workItem from="1702113334289" duration="6561000" />
-      <workItem from="1702190302195" duration="1598000" />
+      <workItem from="1702190302195" duration="4128000" />
     </task>
     <servers />
   </component>

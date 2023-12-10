@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a39608-2170-4054-a7f3-29482a795da6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/cartListController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/feturesController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/invoiceController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/productContoller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/wishController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/cartListServices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/feturesServices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/invoiceServices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/productServices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/userServices.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/wishServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PaymentSettingModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PaymentSettingModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BrandModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BrandModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ProductDetailModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProductDetailModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ProductSliderModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProductSliderModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/route/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +46,9 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2Z7JlScAv07qnXgYb5mFXacUtCb" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -40,25 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "javascript.nodejs.core.library.configured.version": "18.17.0",
-    "javascript.nodejs.core.library.typings.version": "18.17.0",
-    "last_opened_file_path": "C:/Users/milon/Desktop/E-commerce-MERN",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.17.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/milon/Desktop/E-commerce-MERN&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,7 +86,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701767335097</updated>
-      <workItem from="1701767338479" duration="10335000" />
+      <workItem from="1701767338479" duration="13490000" />
+      <workItem from="1702113334289" duration="6561000" />
+      <workItem from="1702190302195" duration="1598000" />
     </task>
     <servers />
   </component>

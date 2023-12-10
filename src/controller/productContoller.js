@@ -1,42 +1,49 @@
+const {
+    brandListService, categoryListService,
+    sliderListService, listByBrandService, listByCategoryService, listBySimilarService,
+    listByKeywordService, listByRemarkService, productDetailsService, productReviewListService
+} = require("../services/productServices")
 
+exports.brandList =async ()=>{
+    let result = await brandListService();
+    return re.status(200).json(result)
+}
 
-exports.brandList = ()=>{
+exports.categoryList =async  ()=>{
+    let result = await categoryListService();
+    return re.status(200).json(result)
+}
+
+exports.sliderList =async ()=>{
+    let result = await sliderListService();
+    return re.status(200).json(result)
+}
+
+exports.listByBrand =async ()=>{
 
 }
 
-exports.categoryList = ()=>{
+exports.listByCategory =async ()=>{
 
 }
 
-exports.sliderList = ()=>{
+exports.listBySimilar =async ()=>{
 
 }
 
-exports.listByBrand = ()=>{
+exports.listByKeyword =async ()=>{
 
 }
 
-exports.listByCategory = ()=>{
+exports.listByRemark =async ()=>{
 
 }
 
-exports.listBySimilar = ()=>{
+exports.productDetails =async ()=>{
 
 }
 
-exports.listByKeyword = ()=>{
-
-}
-
-exports.listByRemark = ()=>{
-
-}
-
-exports.productDetails = ()=>{
-
-}
-
-exports.productReviewList = ()=>{
+exports.productReviewList =async ()=>{
 
 }
 

@@ -15,7 +15,7 @@ const xss  = require("xss-clean");
 
 // Database
 const mongoose = require("mongoose");
-const {resolve} = require("path");
+
 
 
 
@@ -54,10 +54,12 @@ mongoose.connect(mongoURI)
 
 
 // Managing FrontEnd Api
-app.use(express.static("client/dist"))
-app.get("*", (req, res)=>{
-    req.sendFile(resolve(__dirname, "client", "dist", "index.html"))
-})
+// app.use(express.static("client/dist"))
+// app.get('*',function (req,res) {
+//     res.sendFile(path.resolve(__dirname,'client','dist','index.html'))
+// })
+
+
 
 
 

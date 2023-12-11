@@ -13,7 +13,7 @@ const brandListService = async ()=>{
             let data  =  await brandModel.find();
             return {status:"Success", data:data}
         }catch (e) {
-            return {status:"Failed", data:e}
+            return {status:"Failed", data:e.toString()}
         }
 }
 
@@ -31,7 +31,7 @@ const sliderListService = async ()=>{
         let data  =  await productSliderModel.find();
         return {status:"Success", data:data}
     }catch (e) {
-        return {status:"Failed", data:e}
+        return {status:"Failed", data:e.toString()}
     }
 }
 

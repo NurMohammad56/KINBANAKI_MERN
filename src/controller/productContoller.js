@@ -37,6 +37,11 @@ exports.listBySimilar =async (req, res)=>{
     let result = await listBySimilarService(req);
     return res.status(200).json(result)
 }
+exports.productDetails =async (req, res)=>{
+    let result = await productDetailsService(req);
+    return res.status(200).json(result)
+}
+
 
 exports.listByKeyword =async ()=>{
 
@@ -44,9 +49,7 @@ exports.listByKeyword =async ()=>{
 
 
 
-exports.productDetails =async ()=>{
 
-}
 
 exports.productReviewList =async ()=>{
 

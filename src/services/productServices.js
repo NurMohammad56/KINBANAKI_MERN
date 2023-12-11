@@ -141,11 +141,39 @@ const listBySimilarService = async (req)=>{
         return {status:"Success", data:e.toString()}
     }
 }
+const productDetailsService = async (req)=>{
+    try{
+        let productID = new objectId(req.params.productID);
+        let matchStage = {$match : {_id: productID}};
 
+        let joinWithBrandStage = {$lookup: {from: "brands", localField:"brandID", foreignField:"_id", as:"brand"}}
+        let joinWithCategoryStage = {$lookup: {from: "categories", localField:"categoryID", foreignField:"_id", as:"category"}}
+        let joinWithDetailStage = {$lookup: {from: "productdetails", localField:"_id", foreignField:"productID", as:"details"}}
+        let unwindBrandStage = {$unwind: "$brand"};
+        let unwindCategoryStage = {$unwind: "$category"};
+        let unwindDetailStage = {$unwind: "$details"};
 
-const productDetailsService = async ()=>{
+        let projectionStage = {$project :{"brand._id":0, "category._id":0, "categoryID":0, "brandID":0}}
 
+        let data = await productModel.aggregate([
+            matchStage,
+            joinWithBrandStage,
+            joinWithCategoryStage,
+            joinWithDetailStage,
+            unwindBrandStage,
+            unwindCategoryStage,
+            unwindDetailStage,
+            projectionStage
+        ])
+
+        return {status:"Success", data:data}
+
+    }catch (e) {
+        return {status:"Success", data:e.toString()}
+    }
 }
+
+
 
 
 const listByKeywordService = async ()=> {

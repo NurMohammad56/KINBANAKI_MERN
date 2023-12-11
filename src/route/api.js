@@ -11,7 +11,7 @@ router.get("/categoryList", categoryList);
 router.get("/sliderList", sliderList);
 router.get("/listByBrand/:brandID", listByBrand);
 router.get("/listByCategory/:categoryID", listByCategory);
-router.get("/listBySimilar/:keyword", listBySimilar);
+router.get("/listBySimilar/:categoryID", listBySimilar);
 router.get("/listByKeyword/:keyword", listByKeyword);
 router.get("/listByRemark/:remark", listByRemark);
 router.get("/productDetails/:productID", productDetails);

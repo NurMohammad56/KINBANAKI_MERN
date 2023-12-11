@@ -33,8 +33,9 @@ exports.listByRemark =async (req, res)=>{
 }
 
 
-exports.listBySimilar =async ()=>{
-
+exports.listBySimilar =async (req, res)=>{
+    let result = await listBySimilarService(req);
+    return res.status(200).json(result)
 }
 
 exports.listByKeyword =async ()=>{

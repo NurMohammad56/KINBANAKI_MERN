@@ -16,7 +16,6 @@ const brandListService = async ()=>{
             return {status:"Failed", data:e.toString()}
         }
 }
-
 const categoryListService = async ()=>{
         try{
             let data  =  await categoryModel.find();
@@ -25,7 +24,6 @@ const categoryListService = async ()=>{
             return {status:"Failed", data:e.toString()}
         }
 }
-
 const sliderListService = async ()=>{
     try{
         let data  =  await productSliderModel.find();
@@ -34,6 +32,8 @@ const sliderListService = async ()=>{
         return {status:"Failed", data:e.toString()}
     }
 }
+
+
 
 const listByBrandService = async (req)=>{
     try{
@@ -60,7 +60,6 @@ const listByBrandService = async (req)=>{
         return {status:"Failed", data:e.toString()}
     }
 }
-
 const listByCategoryService = async (req)=>{
     try{
         let categoryID = new objectId(req.params.categoryID);
@@ -87,6 +86,33 @@ const listByCategoryService = async (req)=>{
         return {status:"Success", data:e.toString()}
     }
 }
+const listByRemarkService = async (req)=>{
+    try{
+        let remark =req.params.remark;
+        let matchStage = {$match : {remark: remark}};
+        let unwindBrandStage = {$unwind: "$brand"};
+        let unwindCategoryStage = {$unwind: "$category"};
+        let joinWithCategoryStage = {$lookup: {from: "categories", localField:"categoryID", foreignField:"_id", as:"category"}}
+        let joinWithBrandStage = {$lookup: {from: "brands", localField:"brandID", foreignField:"_id", as:"brand"}}
+        let projectionStage = {$project :{"brand._id":0, "category._id":0, "categoryID":0, "brandID":0}}
+
+
+        let data = await productModel.aggregate([
+            matchStage,
+            joinWithBrandStage,
+            joinWithCategoryStage,
+            unwindBrandStage,
+            unwindCategoryStage,
+            projectionStage
+        ])
+
+        return {status:"Success", data:data}
+
+    }catch (e) {
+        return {status:"Success", data:e.toString()}
+    }
+}
+
 
 const listBySimilarService = async ()=>{
 
@@ -96,9 +122,7 @@ const listByKeywordService = async ()=>{
 
 }
 
-const listByRemarkService = async ()=>{
 
-}
 
 const productDetailsService = async ()=>{
 

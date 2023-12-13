@@ -38,12 +38,12 @@ const sliderListService = async ()=>{
 const listByBrandService = async (req)=>{
     try{
         let brandID = new objectId(req.params.brandID);
-        let matchStage = {$match : {brandID: brandID}};
         let joinWithBrandStage = {$lookup: {from: "brands", localField:"brandID", foreignField:"_id", as:"brand"}}
         let joinWithCategoryStage = {$lookup: {from: "categories", localField:"categoryID", foreignField:"_id", as:"category"}}
         let unwindBrandStage = {$unwind: "$brand"};
         let unwindCategoryStage = {$unwind: "$category"};
         let projectionStage = {$project :{"brand._id":0, "category._id":0, "categoryID":0, "brandID":0}}
+        let matchStage = {$match : {brandID: brandID}};
 
 
         let data = await productModel.aggregate([

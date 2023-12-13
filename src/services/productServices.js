@@ -176,7 +176,36 @@ const productDetailsService = async (req)=>{
 
 
 
-const listByKeywordService = async ()=> {
+const listByKeywordService = async (req)=> {
+    try {
+        let searchRegex = {"$regex":req.params.keyword, "$options":"i"};
+        let searchKeyword = [{title:searchRegex}, {shortDes:searchRegex}];
+        let searchQuery = {$or:searchKeyword}
+        let searchMatch = {$match:searchQuery};
+
+        let joinWithCategoryStage = {$lookup: {from: "categories", localField:"categoryID", foreignField:"_id", as:"category"}}
+        let joinWithBrandStage = {$lookup: {from: "brands", localField:"brandID", foreignField:"_id", as:"brand"}}
+        let unwindBrandStage = {$unwind: "$brand"};
+        let unwindCategoryStage = {$unwind: "$category"};
+
+        let projectionStage = {$project :{"brand._id":0, "category._id":0, "categoryID":0, "brandID":0}}
+
+        let data = await productModel.aggregate([
+            searchMatch,
+            joinWithBrandStage,
+            joinWithCategoryStage,
+            unwindBrandStage,
+            unwindCategoryStage,
+            projectionStage
+        ])
+
+        return {status:"Success", data:data}
+
+
+
+    }catch (e) {
+        return {status:"Success", data:e.toString()}
+    }
 }
 
 

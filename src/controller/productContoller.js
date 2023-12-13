@@ -43,8 +43,9 @@ exports.productDetails =async (req, res)=>{
 }
 
 
-exports.listByKeyword =async ()=>{
-
+exports.listByKeyword =async (req, res)=>{
+    let result = await listByKeywordService(req);
+    return res.status(200).json(result)
 }
 
 

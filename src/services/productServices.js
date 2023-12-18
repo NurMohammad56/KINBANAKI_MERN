@@ -3,7 +3,7 @@ const categoryModel = require("../model/CategoryModel");
 const productModel = require("../model/ProductModel");
 const productSliderModel = require("../model/ProductSliderModel");
 const productDetailModel = require("../model/ProductDetailModel");
-const ReviewModel = require("../model/ReviewModel");
+const reviewModel = require("../model/ReviewModel");
 const mongoose = require("mongoose");
 const objectId = mongoose.Types.ObjectId;
 
@@ -204,13 +204,31 @@ const listByKeywordService = async (req)=> {
 
 
     }catch (e) {
-        return {status:"Success", data:e.toString()}
+        return {status:"Failed", data:e.toString()}
     }
 }
 
 
-const productReviewListService = async ()=>{
+const productReviewListService = async (req)=>{
+    try{
+        let productID =new objectId(req.params.productID) ;
+        let matchingStage = {$match:{productID:productID}};
+        let joinWithProfile = {$lookup: {from: "profiles", localField:"userID", foreignField:"userID", as:"profile"}}
+        let unwindProfile = {$unwind:"$profile"};
+        let projectStage = {$project:{"des":1, "rating":1, "profile.cus_name": 1}}
 
+
+
+        let data =await reviewModel.aggregate([
+            matchingStage,
+            joinWithProfile,
+            unwindProfile,
+            projectStage
+        ])
+        return {status:"Success", data:data}
+    }catch (e) {
+        return {status:"Failed", data:e.toString()}
+    }
 }
 
 

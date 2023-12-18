@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="20a39608-2170-4054-a7f3-29482a795da6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/productContoller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/productContoller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/productServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/productServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/userServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/userServices.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +55,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.17.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/milon/Desktop/E-commerce-MERN&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/milon/Desktop/aliba_int_frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -72,6 +76,10 @@
       <workItem from="1702113334289" duration="6561000" />
       <workItem from="1702190302195" duration="14009000" />
       <workItem from="1702286587654" duration="2599000" />
+      <workItem from="1702534045522" duration="3085000" />
+      <workItem from="1702562614082" duration="17000" />
+      <workItem from="1702793724324" duration="7709000" />
+      <workItem from="1702901745432" duration="609000" />
     </task>
     <servers />
   </component>

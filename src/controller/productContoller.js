@@ -52,8 +52,9 @@ exports.listByKeyword =async (req, res)=>{
 
 
 
-exports.productReviewList =async ()=>{
-
+exports.productReviewList =async (req, res)=>{
+    let result = await productReviewListService(req);
+    return res.status(200).json(result)
 }
 
 

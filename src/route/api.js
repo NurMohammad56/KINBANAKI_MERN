@@ -1,10 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {brandList, categoryList, sliderList,
-    listByBrand, listByCategory, listBySimilar,
-    listByKeyword, listByRemark,
-    productDetails, productReviewList} = require("../controller/productContoller")
-
+const {brandList, categoryList, sliderList, listByBrand, listByCategory, listBySimilar, listByKeyword, listByRemark, productDetails, productReviewList} = require("../controller/productContoller")
+const {userOtp} = require("../controller/userController")
 // Product
 router.get("/brandList", brandList);
 router.get("/categoryList", categoryList);
@@ -17,5 +14,8 @@ router.get("/listByRemark/:remark", listByRemark);
 router.get("/productDetails/:productID", productDetails);
 router.get("/productReviewList/:productID", productReviewList);
 
+
+// User
+router.get("/userOtp/:email", userOtp);
 
 module.exports = router;

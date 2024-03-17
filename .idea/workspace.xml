@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a39608-2170-4054-a7f3-29482a795da6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/middleware/authVerification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/emailHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/emailHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/tokenHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/tokenHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/userController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/wishController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/wishController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/authVerification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/authVerification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/route/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/userServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/userServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/wishServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/wishServices.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.17.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.17.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/milon/Desktop/aliba_int_frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/milon/Desktop/aliba-ecommerce-project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -84,6 +84,14 @@
       <workItem from="1702901745432" duration="3390000" />
       <workItem from="1702969166287" duration="7000" />
       <workItem from="1703088432968" duration="3908000" />
+      <workItem from="1703393346556" duration="5506000" />
+      <workItem from="1703504038428" duration="4125000" />
+      <workItem from="1703522260163" duration="14000" />
+      <workItem from="1703587334746" duration="4675000" />
+      <workItem from="1703684906278" duration="1780000" />
+      <workItem from="1704362559580" duration="227000" />
+      <workItem from="1710622476529" duration="4991000" />
+      <workItem from="1710665636611" duration="2393000" />
     </task>
     <servers />
   </component>

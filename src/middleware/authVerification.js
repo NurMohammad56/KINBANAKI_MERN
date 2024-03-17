@@ -1,4 +1,4 @@
-import {decodeToken} from "../Helpers/tokenHelper";
+const {decodeToken} = require ("../Helpers/tokenHelper");
 
 module.exports = (req, res, next)=>{
     let token = req.headers['token'];

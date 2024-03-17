@@ -25,9 +25,12 @@ const verifyOtpService = async (req)=>{
         let otp = req.params.otp;
         let total =await userModel.find({email:email, otp:otp}).count('total')
         if (total === 1){
+            // Read id
             let user_id = await userModel.find({email:email, otp:otp}).select('_id');
+            // User token create
             let token = encodeToken(email, user_id[0]['_id'].toString());
 
+            // OTP Update to 0
             await userModel.updateOne({email:email}, {$set:{otp:'0'}});
             return {status:"Success", message:"Done", token:token};
         }else{
@@ -39,17 +42,19 @@ const verifyOtpService = async (req)=>{
     }
 }
 
-const logoutServices = async (req)=>{
-
-}
 
 const saveProfileService = async (req)=>{
-    let user_id = req.headers.user_id;
-    let reqBody = req.body;
-    reqBody.userID = user_id;
+    try {
+        let user_id = req.headers.user_id;
+        let reqBody = req.body;
+        reqBody.userID = user_id;
 
-    await profileModel.updateOne({userID : user_id}, {$set : reqBody}, {upsert:true});
-    return {status: "Success", message: "Profile save successful"}
+        await profileModel.updateOne({userID : user_id}, {$set : reqBody}, {upsert:true});
+        return {status: "Success", message: "Profile save successful"};
+    }
+    catch (e) {
+        return {e};
+    }
 }
 
 
@@ -60,7 +65,6 @@ const readProfileService = async (req)=>{
 module.exports = {
     otpService,
     verifyOtpService,
-    logoutServices,
     saveProfileService,
     readProfileService
 }

@@ -3,7 +3,7 @@ const router = express.Router();
 const {brandList, categoryList, sliderList, listByBrand, listByCategory, listBySimilar, listByKeyword, listByRemark, productDetails, productReviewList} = require("../controller/productContoller")
 const {userOtp, verifyLogin, userLogout, createProfile, updateProfile, readProfile} = require("../controller/userController");
 const {wishList, createWishList, removeWishList} = require("../controller/wishController");
-const authVerification = require("../middleware/authVerification");
+const authVerification = require("../middleware/tokenHelper");
 
 // Product
 router.get("/brandList", brandList);

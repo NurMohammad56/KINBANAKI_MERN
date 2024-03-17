@@ -9,9 +9,10 @@ exports.encodeToken = (email, user_id)=>{
 
 exports.decodeToken= (token)=>{
     try{
+        console.log(token);
         let key = "123-ABC-XYZ";
         return JWT.verify(token, key);
     }catch (e){
-        return null
+        return console.log(e.message)
     }
 }

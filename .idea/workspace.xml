@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a39608-2170-4054-a7f3-29482a795da6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/middleware/tokenHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/emailHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/emailHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Helpers/tokenHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/tokenHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/authVerification.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middleware/tokenHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/authVerification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/route/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/userServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/userServices.js" afterDir="false" />
     </list>
@@ -92,21 +92,25 @@
       <workItem from="1703684906278" duration="1780000" />
       <workItem from="1704362559580" duration="227000" />
       <workItem from="1710622476529" duration="4991000" />
-      <workItem from="1710665636611" duration="13367000" />
+      <workItem from="1710665636611" duration="29514000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/middleware/tokenHelper.js" line="1">
-        <watch expression="decodeToken" language="JavaScript" />
-      </inline-watch>
-    </watches-manager>
   </component>
 </project>

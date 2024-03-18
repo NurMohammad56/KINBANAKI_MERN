@@ -3,7 +3,6 @@ const router = require("./src/route/api")
 const app = new express();
 const bodyParser = require("body-parser")
 const cookie = require('cookie-parser')
-const JWT = require('jsonwebtoken')
 
 // Security middleware 
 const helmet = require("helmet");

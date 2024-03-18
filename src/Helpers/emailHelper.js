@@ -1,6 +1,6 @@
 const nodeMailer = require("nodemailer");
 
-exports. emailSend = async (emailTo, emailText, emailSubject)=>{
+exports.emailSend = async (emailTo, emailText, emailSubject)=>{
     let transport = nodeMailer.createTransport({
         host:"mail.teamrabbil.com",
         post:25,

@@ -70,7 +70,6 @@ const readProfileService = async (req)=>{
         return {status: "Failed", message:"Something went wrong"};
     }
 }
-// 
 module.exports = {
     otpService,
     verifyOtpService,

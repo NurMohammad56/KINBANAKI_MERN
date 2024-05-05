@@ -23,13 +23,13 @@ router.get("/userOtp/:email", userOtp);
 router.get("/verifyLogin/:email/:otp", verifyLogin);
 router.get("/userLogout", authVerification, userLogout);
 router.post("/createProfile", authVerification,createProfile);
-// router.post("/updateProfile", authVerification,updateProfile);
+router.post("/updateProfile", authVerification,updateProfile);
 
 
 // Wish
-// router.post('/createWishList', authVerification,createWishList);
-// router.post('/removeWishList', authVerification,removeWishList);
-
+router.post('/createWishList', authVerification,createWishList);
+router.post('/removeWishList', authVerification,removeWishList);
+router.get('/wishList',authVerification, wishList)
 
 
 module.exports = router;

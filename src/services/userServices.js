@@ -45,24 +45,32 @@ const verifyOtpService = async (req)=> {
 }
 
 const saveProfileService = async (req)=>{
-    let user_id = req.headers.user_id;
-    let reqBody = req.body;
-    reqBody.userID = user_id;
-
-    await profileModel.updateOne({userID : user_id}, {$set : reqBody}, {upsert:true});
-    return {status: "Success", message: "Profile save success"}
+    try{
+        let user_id = req.headers.user_id;
+        let reqBody = req.body;
+        reqBody.userID = user_id;
+    
+        await profileModel.updateOne({userID : user_id}, {$set : reqBody}, {upsert:true});
+        return {status: "Success", message: "Profile save success"}
+    }catch(e){
+        return {status: "Failed", message:"Something went wrong"};
+    }
 }
 
 const updateProfileService = async (req)=>{
 
 }
 
-
 const readProfileService = async (req)=>{ 
-
-
+    try {
+    let user_id = req.headers.user_id;
+    let result= await profileModel.find({userID:user_id});
+    return {status : "Success", data: result};
+    } catch (e) {
+        return {status: "Failed", message:"Something went wrong"};
+    }
 }
-
+// 
 module.exports = {
     otpService,
     verifyOtpService,

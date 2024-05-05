@@ -44,7 +44,7 @@ const verifyOtpService = async (req)=> {
 
 }
 
-const createProfileService = async (req)=>{
+const saveProfileService = async (req)=>{
     let user_id = req.headers.user_id;
     let reqBody = req.body;
     reqBody.userID = user_id;
@@ -57,14 +57,16 @@ const updateProfileService = async (req)=>{
 
 }
 
-const readProfileService = async (req)=>{
+
+const readProfileService = async (req)=>{ 
+
 
 }
 
 module.exports = {
     otpService,
     verifyOtpService,
-    createProfileService,
+    saveProfileService,
     updateProfileService,
     readProfileService
 }

@@ -37,6 +37,6 @@ router.get('/wishList',authVerification, wishList)
 router.post('/saveCartList', authVerification,saveCartList);
 router.post('/updateCartList', authVerification,updateCartList);
 router.post('/removeCartList', authVerification,removeCartList);
-router.get('/cartList',authVerification, cartList)
+router.get('/cartList',authVerification, cartList);
 
 module.exports = router;

@@ -34,7 +34,12 @@ const updateCartListService = async (req) =>{
 
 const removeCartListService = async (req) =>{
     try {
-        
+        let user_id = req.headers.user_id;
+        let reqBody = req.body;
+        reqBody.userID = user_id;
+
+        await CartModel.deleteOne(reqBody);
+        return {status:"Success",message:"Cart list removed successful"}
     } catch (error) {
         return {status:"fail",message:"Something Went Wrong !"}
     }

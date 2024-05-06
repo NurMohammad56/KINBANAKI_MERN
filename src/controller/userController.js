@@ -29,15 +29,16 @@ exports.userLogout = async (req, res)=>{
 }
 
 exports.createProfile = async (req, res)=>{
-        let result = await saveProfileService();
+        let result = await saveProfileService(req);
         return res.status(200).json(result);
 }
 
 exports.updateProfile = async (req, res)=>{
-        let result = await saveProfileService();
+        let result = await saveProfileService(req);
         return res.status(200).json(result);
 }
 
 exports.readProfile = async (req, res)=>{
-
+        let result = await readProfileService(req);
+        return res.status(200).json(result);
 }

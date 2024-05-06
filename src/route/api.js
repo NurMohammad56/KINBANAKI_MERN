@@ -3,6 +3,7 @@ const router = express.Router();
 const {brandList, categoryList, sliderList, listByBrand, listByCategory, listBySimilar, listByKeyword, listByRemark, productDetails, productReviewList} = require("../controller/productContoller")
 const {userOtp, verifyLogin, userLogout, createProfile, updateProfile, readProfile} = require("../controller/userController");
 const {wishList, createWishList, removeWishList} = require("../controller/wishController");
+const {cartList, saveCartList, updateCartList, removeCartList} = require("../controller/cartListController")
 const authVerification = require("../middleware/authVerification");
 
 // Product
@@ -24,6 +25,7 @@ router.get("/verifyLogin/:email/:otp", verifyLogin);
 router.get("/userLogout", authVerification, userLogout);
 router.post("/createProfile", authVerification,createProfile);
 router.post("/updateProfile", authVerification,updateProfile);
+router.get("/readProfile", authVerification,readProfile);
 
 
 // Wish
@@ -31,5 +33,10 @@ router.post('/createWishList', authVerification,createWishList);
 router.post('/removeWishList', authVerification,removeWishList);
 router.get('/wishList',authVerification, wishList)
 
+// Cart
+router.post('/saveCartList', authVerification,saveCartList);
+router.post('/updateCartList', authVerification,updateCartList);
+router.post('/removeCartList', authVerification,removeCartList);
+router.get('/cartList',authVerification, cartList)
 
 module.exports = router;

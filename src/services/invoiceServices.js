@@ -101,7 +101,10 @@ const createInvoiceService = async (req) => {
         size: element["size"],
       });
     });
-    // ============Step 01: Calculate Payable and Vat==================================================
+
+    // ============Step 01: Remove Cart=============================================================
+
+    await CartModel.deleteMany({ userId: user_id });
 
     // ============Step 01: Calculate Payable and Vat==================================================
 

@@ -29,6 +29,9 @@ cartProducts.forEach((element) => {
     }
     totalAmount += parseFloat(element['qty'])*price;
 });
+
+let vat = totalAmount* 0.05 //5% vat
+let payable = totalAmount+vat
 // ============Step 01: Calculate Payable and Vat==================================================
 
 
@@ -49,7 +52,7 @@ cartProducts.forEach((element) => {
 
 // ============Step 01: Calculate Payable and Vat==================================================
 
-        return {status:"Success", data:totalAmount}
+        return {status:"Success", data:payable}
     } catch (error) {
         return {status:"fail",message:"Something Went Wrong !"}
     }

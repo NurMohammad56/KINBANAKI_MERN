@@ -63,7 +63,12 @@ const saveCartListService = async (req) =>{
 
 const updateCartListService = async (req) =>{
     try {
-        
+        let user_id = req.headers.user_id;
+        let cartID = req.params.cartID;
+        let reqBody = req.body;
+
+        await CartModel.updateOne({_id:cartID, userID:user_id}, {$set:reqBody});
+        return {status:"Success",message:"Cart list updated successful"};
     } catch (error) {
         return {status:"fail",message:"Something Went Wrong !"}
     }

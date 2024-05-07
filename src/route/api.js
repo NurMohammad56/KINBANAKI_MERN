@@ -35,7 +35,7 @@ router.get('/wishList',authVerification, wishList)
 
 // Cart
 router.post('/saveCartList', authVerification,saveCartList);
-router.post('/updateCartList', authVerification,updateCartList);
+router.post('/updateCartList/:cartID', authVerification,updateCartList);
 router.post('/removeCartList', authVerification,removeCartList);
 router.get('/cartList',authVerification, cartList);
 

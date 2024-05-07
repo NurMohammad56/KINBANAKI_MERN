@@ -62,19 +62,50 @@ const createInvoiceService = async (req) => {
      State:${profile[0]["ship_state"]},
      Phone:${profile[0]["ship_phone"]},
     `;
+    // ============Step 03: Transaction & Other's ID==================================================
+
+    let tran_id = Math.floor(1000000 + Math.random() * 9000000);
+    let val_id = 0;
+    let delivery_status = "Pending";
+    let payment_status = "Pending";
+
+    // ============Step 04: Create Invoice==========================================================
+
+    let createInvoice = await InvoiceModel.create({
+      userID: user_id,
+      payable: payable,
+      cus_details: cus_details,
+      ship_details: shipping_details,
+      tran_id: tran_id,
+      val_id: val_id,
+      delivery_status: delivery_status,
+      payment_status: payment_status,
+      total: totalAmount,
+      vat: vat,
+    });
+
+    // ============Step 05: Create Invoice Product==================================================
+
+    let invoice_id = createInvoice["_id"];
+
+    cartProducts.forEach(async (element) => {
+      await InvoiceProductModel.create({
+        userID: user_id,
+        productID: element["productID"],
+        invoiceID: invoice_id,
+        qty: element["qty"],
+        price: element["product"]["discount"]
+          ? element["product"]["discount"]
+          : element["product"]["price"],
+        color: element["color"],
+        size: element["size"],
+      });
+    });
     // ============Step 01: Calculate Payable and Vat==================================================
 
     // ============Step 01: Calculate Payable and Vat==================================================
 
-    // ============Step 01: Calculate Payable and Vat==================================================
-
-    // ============Step 01: Calculate Payable and Vat==================================================
-
-    // ============Step 01: Calculate Payable and Vat==================================================
-
-    // ============Step 01: Calculate Payable and Vat==================================================
-
-    return { status: "Success", data: profile };
+    return { status: "Success", data: data };
   } catch (error) {
     return { status: "fail", message: "Something Went Wrong !" };
   }

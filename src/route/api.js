@@ -4,6 +4,7 @@ const {brandList, categoryList, sliderList, listByBrand, listByCategory, listByS
 const {userOtp, verifyLogin, userLogout, createProfile, updateProfile, readProfile} = require("../controller/userController");
 const {wishList, createWishList, removeWishList} = require("../controller/wishController");
 const {cartList, saveCartList, updateCartList, removeCartList} = require("../controller/cartListController")
+const {createInvoice, paymentCancel, paymentFail, paymentIPN, paymentSuccess, invoiceList, invoiceProductList} = require("../controller/invoiceController")
 const authVerification = require("../middleware/authVerification");
 
 // Product
@@ -38,5 +39,8 @@ router.post('/saveCartList', authVerification,saveCartList);
 router.post('/updateCartList/:cartID', authVerification,updateCartList);
 router.post('/removeCartList', authVerification,removeCartList);
 router.get('/cartList',authVerification, cartList);
+
+// Invoice
+router.get('/createInvoice', authVerification, createInvoice)
 
 module.exports = router;

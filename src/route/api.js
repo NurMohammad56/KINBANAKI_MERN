@@ -75,5 +75,9 @@ router.get("/cartList", authVerification, cartList);
 
 // Invoice
 router.get("/createInvoice", authVerification, createInvoice);
+router.post("/paymentSuccess/:trxID", paymentSuccess);
+router.post("/paymentCancel/:trxID", paymentCancel);
+router.post("/paymentFail/:trxID", paymentFail);
+router.post("/paymentIPN/:trxID", paymentIPN);
 
 module.exports = router;

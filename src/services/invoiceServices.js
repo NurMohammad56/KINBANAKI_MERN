@@ -105,11 +105,14 @@ const createInvoiceService = async (req) => {
     form.append("total_amount", payable.toString());
     form.append("currency", paymentSetting[0]["currency"]);
     form.append("tran_id", tran_id);
-    form.append("success_url", paymentSetting[0]["success_url"]);
-    form.append("fail_url", paymentSetting[0]["fail_url"]);
-    form.append("cancel_url", paymentSetting[0]["cancel_url"]);
-    form.append("ipn_url", paymentSetting[0]["ipn_url"]);
-    form.append("init_url", paymentSetting[0]["init_url"]);
+    form.append(
+      "success_url",
+      `${paymentSetting[0]["success_url"]}/${tran_id}`
+    );
+    form.append("fail_url", `${paymentSetting[0]["fail_url"]}/${tran_id}`);
+    form.append("cancel_url", `${paymentSetting[0]["cancel_url"]}/${tran_id}`);
+    form.append("ipn_url", `${paymentSetting[0]["ipn_url"]}/${tran_id}`);
+    form.append("init_url", `${paymentSetting[0]["init_url"]}/${tran_id}`);
 
     // Customer
 
@@ -148,8 +151,27 @@ const createInvoiceService = async (req) => {
   }
 };
 
+const paymentSuccessService = async (req) => {
+  try {
+    let trxID = req.params.trxID;
+    await InvoiceModel.updateOne(
+      { tran_id: trxID },
+      { payment_status: "Success" }
+    );
+    return { status: "Success" };
+  } catch (error) {
+    return { status: "fail", message: "Something Went Wrong !" };
+  }
+};
+
 const paymentFailService = async (req) => {
   try {
+    let trxID = req.params.trxID;
+    await InvoiceModel.updateOne(
+      { tran_id: trxID },
+      { payment_status: "Fail" }
+    );
+    return { status: "Fail" };
   } catch (error) {
     return { status: "fail", message: "Something Went Wrong !" };
   }
@@ -157,6 +179,12 @@ const paymentFailService = async (req) => {
 
 const paymentCancelService = async (req) => {
   try {
+    let trxID = req.params.trxID;
+    await InvoiceModel.updateOne(
+      { tran_id: trxID },
+      { payment_status: "Cancel" }
+    );
+    return { status: "Cancel" };
   } catch (error) {
     return { status: "fail", message: "Something Went Wrong !" };
   }
@@ -164,13 +192,13 @@ const paymentCancelService = async (req) => {
 
 const paymentIPNService = async (req) => {
   try {
-  } catch (error) {
-    return { status: "fail", message: "Something Went Wrong !" };
-  }
-};
-
-const paymentSuccessService = async (req) => {
-  try {
+    let trxID = req.params.trxID;
+    let status = req.body["status"];
+    await InvoiceModel.updateOne(
+      { tran_id: trxID },
+      { payment_status: "status" }
+    );
+    return { status: "Success" };
   } catch (error) {
     return { status: "fail", message: "Something Went Wrong !" };
   }

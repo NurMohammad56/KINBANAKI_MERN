@@ -156,7 +156,7 @@ const paymentSuccessService = async (req) => {
     let trxID = req.params.trxID;
     await InvoiceModel.updateOne(
       { tran_id: trxID },
-      { payment_status: "Success" }
+      { payment_status: "success" }
     );
     return { status: "Success" };
   } catch (error) {
@@ -169,7 +169,7 @@ const paymentFailService = async (req) => {
     let trxID = req.params.trxID;
     await InvoiceModel.updateOne(
       { tran_id: trxID },
-      { payment_status: "Fail" }
+      { payment_status: "fail" }
     );
     return { status: "Fail" };
   } catch (error) {
@@ -182,7 +182,7 @@ const paymentCancelService = async (req) => {
     let trxID = req.params.trxID;
     await InvoiceModel.updateOne(
       { tran_id: trxID },
-      { payment_status: "Cancel" }
+      { payment_status: "cancel" }
     );
     return { status: "Cancel" };
   } catch (error) {
@@ -206,8 +206,11 @@ const paymentIPNService = async (req) => {
 
 const invoiceListService = async (req) => {
   try {
-  } catch (error) {
-    return { status: "fail", message: "Something Went Wrong !" };
+    let user_id = req.headers.user_id;
+    let invoice = await InvoiceModel.find({ userID: user_id });
+    return { status: "success", data: invoice };
+  } catch (e) {
+    return { status: "fail", message: "Something Went Wrong" };
   }
 };
 

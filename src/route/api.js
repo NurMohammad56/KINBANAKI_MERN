@@ -40,6 +40,7 @@ const {
   invoiceList,
   invoiceProductList,
 } = require("../controller/invoiceController");
+const { featuresList } = require("../controller/feturesController");
 const authVerification = require("../middleware/authVerification");
 
 // Product
@@ -85,5 +86,8 @@ router.post("/paymentSuccess/:trxID", paymentSuccess);
 router.post("/paymentCancel/:trxID", paymentCancel);
 router.post("/paymentFail/:trxID", paymentFail);
 router.post("/paymentIPN/:trxID", paymentIPN);
+
+// Feature
+router.get("/FeaturesList", featuresList);
 
 module.exports = router;

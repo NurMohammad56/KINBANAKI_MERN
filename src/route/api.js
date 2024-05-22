@@ -11,6 +11,7 @@ const {
   listByRemark,
   productDetails,
   productReviewList,
+  createReview,
 } = require("../controller/productContoller");
 const {
   userOtp,
@@ -88,6 +89,9 @@ router.post("/paymentFail/:trxID", paymentFail);
 router.post("/paymentIPN/:trxID", paymentIPN);
 
 // Feature
-router.get("/FeaturesList", featuresList);
+router.get("/featuresList", featuresList);
+
+// Review
+router.post("/createReview", authVerification, createReview);
 
 module.exports = router;

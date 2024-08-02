@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/plainb-logo.svg";
+import logo from "../../assets/images/name-logo.svg";
 const AppNavBar = () => {
   return (
     <>
@@ -10,10 +10,10 @@ const AppNavBar = () => {
             <div className="col-md-6">
               <span>
                 <span className="f-12">
-                  <i className="bi bi-envelope"></i> Support@PlanB.com
+                  <i className="bi bi-envelope"></i> support@kinbanaki.com
                 </span>
                 <span className="f-12 mx-2">
-                  <i className="bi bi-envelope"></i> 01774688159
+                  <i className="bi bi-envelope"></i> 01889378903
                 </span>
               </span>
             </div>
@@ -34,10 +34,15 @@ const AppNavBar = () => {
         </div>
       </div>
 
-      <nav className="navbar  sticky-top bg-white navbar-expand-lg navbar-light py-3">
+      <nav className="navbar  sticky-top bg-white navbar-expand-lg navbar-light py-1">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <img className="img-fluid" src={logo} alt="" width="96px" />
+            <img
+              className="img-fluid rounded"
+              src={logo}
+              alt=""
+              width="200px"
+            />
           </Link>
           <button
             className="navbar-toggler"

@@ -4,6 +4,7 @@ import SliderSkeleton from "../skeleton/slider-skeleton";
 import FeaturesSkeleton from "../skeleton/features-skeleton";
 import CategoriesSkeleton from "../skeleton/categories-skeleton";
 import ProductsSkeleton from "../skeleton/products-skeleton";
+import BrandsSkeleton from "../skeleton/brands-skeleton";
 const HomePage = () => {
   return (
     <Layout>
@@ -11,6 +12,7 @@ const HomePage = () => {
       <FeaturesSkeleton />
       <CategoriesSkeleton />
       <ProductsSkeleton />
+      <BrandsSkeleton />
     </Layout>
   );
 };

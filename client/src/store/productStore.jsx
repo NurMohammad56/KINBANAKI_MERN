@@ -9,5 +9,13 @@ const ProductStore = create((set) => ({
       set({ BrandList: res.data["data"] });
     }
   },
+
+  CategoryList: null,
+  CategoryListRequest: async () => {
+    let res = await axios.get("/api/v1/categoryList");
+    if (res.data["status"] === "success") {
+      set({ CategoryList: res.data["data"] });
+    }
+  },
 }));
 export default ProductStore;

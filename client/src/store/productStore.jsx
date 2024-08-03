@@ -1,5 +1,6 @@
 import create from "zustand";
 import axios from "axios";
+import Slider from "./../component/product/slider";
 
 const ProductStore = create((set) => ({
   BrandList: null,
@@ -15,6 +16,14 @@ const ProductStore = create((set) => ({
     let res = await axios.get("/api/v1/categoryList");
     if (res.data["status"] === "success") {
       set({ CategoryList: res.data["data"] });
+    }
+  },
+
+  SliderList: null,
+  SliderListRequest: async () => {
+    let res = await axios.get("/api/v1/sliderList");
+    if (res.data["status"] === "success") {
+      set({ Slider: res.data["data"] });
     }
   },
 }));

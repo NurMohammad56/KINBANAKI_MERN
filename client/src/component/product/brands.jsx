@@ -1,6 +1,6 @@
 import React from "react";
 import ProductStore from "../../store/productStore";
-import BrandsSkeleton from './../../skeleton/brands-skeleton';
+import BrandsSkeleton from "../../skeleton/brands-skeleton";
 
 const Brands = () => {
   const { BrandList } = ProductStore();

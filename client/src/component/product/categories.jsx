@@ -1,5 +1,5 @@
 import React from "react";
-import ProductStore from "../../store/productStore";
+import ProductStore from "../../store/productStore.js";
 import CategoriesSkeleton from "./../../skeleton/categories-skeleton";
 
 const Categories = () => {

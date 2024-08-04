@@ -1,11 +1,6 @@
 import React, { useEffect } from "react";
 import Layout from "../component/layout/layout";
-// import SliderSkeleton from "../skeleton/slider-skeleton";
-// import FeaturesSkeleton from "../skeleton/features-skeleton";
-// import CategoriesSkeleton from "../skeleton/categories-skeleton";
-// import ProductsSkeleton from "../skeleton/products-skeleton";
-// import BrandsSkeleton from "../skeleton/brands-skeleton";
-import ProductStore from "./../store/productStore";
+import ProductStore from "./../store/productStore.js";
 import FeatureStore from "./../store/featureStore";
 import Slider from "../component/product/slider";
 import Features from "../component/features/features";
@@ -35,12 +30,6 @@ const HomePage = () => {
 
   return (
     <Layout>
-      {/* <SliderSkeleton />
-      <FeaturesSkeleton />
-      <CategoriesSkeleton />
-      <ProductsSkeleton />
-      <BrandsSkeleton /> */}
-
       <Slider />
       <Features />
       <Categories />

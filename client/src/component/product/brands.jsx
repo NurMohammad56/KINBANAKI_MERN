@@ -25,7 +25,7 @@ const Brands = () => {
                   className="col-6 col-lg-8r text-center col-md-8r p-2"
                 >
                   <Link
-                    to={`/listByBrand/${item["_id"]}`}
+                    to={`/by-brand/${item["_id"]}`}
                     className="card h-100 rounded-3 bg-white"
                   >
                     <div className="card-body">

@@ -40,6 +40,7 @@ const HomePage = () => {
       <CategoriesSkeleton />
       <ProductsSkeleton />
       <BrandsSkeleton /> */}
+
       <Slider />
       <Features />
       <Categories />

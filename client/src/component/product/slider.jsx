@@ -12,7 +12,7 @@ const Slider = () => {
   } else {
     return (
       <div className="carousel hero-bg carousel-dark slide">
-        <div className="carousel-inner py-5">
+        <div className="carousel-inner py-4">
           <Carousel>
             {SliderList.map((item, i) => {
               return (

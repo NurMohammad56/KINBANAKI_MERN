@@ -324,6 +324,77 @@ const listByKeywordService = async (req) => {
   }
 };
 
+const listByFilterService = async (req) => {
+  try {
+    let matchConditions = {};
+    if (req.body["categoryID"]) {
+      matchConditions.categoryID = new objectId(req.body["categoryID"]);
+    }
+    if (req.body["brandID"]) {
+      matchConditions.brandID = new objectId(req.body["brandID"]);
+    }
+    let MatchStage = { $match: matchConditions };
+
+    let AddFieldsStage = {
+      $addFields: { numericPrice: { $toInt: "$price" } },
+    };
+    let priceMin = parseInt(req.body["priceMin"]);
+    let priceMax = parseInt(req.body["priceMax"]);
+    let PriceMatchConditions = {};
+    if (!isNaN(priceMin)) {
+      PriceMatchConditions["numericPrice"] = { $gte: priceMin };
+    }
+    if (!isNaN(priceMax)) {
+      PriceMatchConditions["numericPrice"] = {
+        ...(PriceMatchConditions["numericPrice"] || {}),
+        $lte: priceMax,
+      };
+    }
+    let PriceMatchStage = { $match: PriceMatchConditions };
+
+    let JoinWithBrandStage = {
+      $lookup: {
+        from: "brands",
+        localField: "brandID",
+        foreignField: "_id",
+        as: "brand",
+      },
+    };
+    let JoinWithCategoryStage = {
+      $lookup: {
+        from: "categories",
+        localField: "categoryID",
+        foreignField: "_id",
+        as: "category",
+      },
+    };
+    let UnwindBrandStage = { $unwind: "$brand" };
+    let UnwindCategoryStage = { $unwind: "$category" };
+    let ProjectionStage = {
+      $project: {
+        "brand._id": 0,
+        "category._id": 0,
+        categoryID: 0,
+        brandID: 0,
+      },
+    };
+
+    let data = await productModel.aggregate([
+      MatchStage,
+      AddFieldsStage,
+      PriceMatchStage,
+      JoinWithBrandStage,
+      JoinWithCategoryStage,
+      UnwindBrandStage,
+      UnwindCategoryStage,
+      ProjectionStage,
+    ]);
+    return { status: "success", data: data };
+  } catch (e) {
+    return { status: "fail", data: e }.toString();
+  }
+};
+
 const productReviewListService = async (req) => {
   try {
     let productID = new objectId(req.params.productID);
@@ -380,4 +451,5 @@ module.exports = {
   productDetailsService,
   productReviewListService,
   createReviewService,
+  listByFilterService,
 };

@@ -12,6 +12,7 @@ const {
   productDetails,
   productReviewList,
   createReview,
+  listByFilter,
 } = require("../controller/productContoller");
 const {
   userOtp,
@@ -55,6 +56,7 @@ router.get("/listByKeyword/:keyword", listByKeyword);
 router.get("/listByRemark/:remark", listByRemark);
 router.get("/productDetails/:productID", productDetails);
 router.get("/productReviewList/:productID", productReviewList);
+router.post("/listByFilter", listByFilter);
 
 // User
 router.get("/userOtp/:email", userOtp);

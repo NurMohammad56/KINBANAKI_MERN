@@ -10,6 +10,7 @@ const {
   productDetailsService,
   productReviewListService,
   createReviewService,
+  listByFilterService,
 } = require("../services/productServices");
 
 exports.brandList = async (req, res) => {
@@ -49,6 +50,11 @@ exports.productDetails = async (req, res) => {
 
 exports.listByKeyword = async (req, res) => {
   let result = await listByKeywordService(req);
+  return res.status(200).json(result);
+};
+
+exports.listByFilter = async (req, res) => {
+  let result = await listByFilterService(req);
   return res.status(200).json(result);
 };
 

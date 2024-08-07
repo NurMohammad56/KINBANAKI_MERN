@@ -59,6 +59,11 @@ const ProductStore = create((set) => ({
       set({ ListProduct: res.data["data"] });
     }
   },
+
+  SearchKeyword: "",
+  SetSearchKeyword: async (keyword) => {
+    set({ SearchKeyword: keyword });
+  },
 }));
 
 export default ProductStore;

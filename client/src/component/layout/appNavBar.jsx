@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/name-logo.svg";
+import ProductStore from "../../store/productStore";
 const AppNavBar = () => {
+  const { SearchKeyword, SetSearchKeyword } = ProductStore();
   return (
     <>
       <div className="container-fluid text-white p-2 bg-success">
@@ -67,18 +69,19 @@ const AppNavBar = () => {
           <div className=" d-lg-flex">
             <div className="input-group">
               <input
-                // onChange={(e) => SetSearchKeyword(e.target.value)}
+                value={SearchKeyword}
+                onChange={(e) => SetSearchKeyword(e.target.value)}
                 className="form-control"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
               <Link
-                // to={
-                //   SearchKeyword.length > 0
-                //     ? `/by-keyword/${SearchKeyword}`
-                //     : `/`
-                // }
+                to={
+                  SearchKeyword.length > 0
+                    ? `/by-keyword/${SearchKeyword}`
+                    : `/`
+                }
                 className="btn btn-outline-dark"
                 type="submit"
               >

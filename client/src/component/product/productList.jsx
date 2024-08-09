@@ -13,6 +13,20 @@ const ProductList = () => {
     CategoryListRequest,
   } = ProductStore();
 
+  let [Filter, SetFilter] = useState({
+    brandID: "",
+    categoryID: "",
+    priceMax: "",
+    priceMin: "",
+  });
+
+  const inputOnChange = async (name, value) => {
+    SetFilter((data) => ({
+      ...data,
+      [name]: value,
+    }));
+  };
+
   useEffect(() => {
     (async () => {
       BrandList === null ? await BrandListRequest() : null;
@@ -26,7 +40,7 @@ const ProductList = () => {
         <div className="col-md-3 p-2">
           <div className="card vh-100 p-3 shadow-sm">
             <label className="form-label mt-3">Brands</label>
-            <select>
+            <select className="form-control form-select">
               <option value="">Choose Brand</option>
               {BrandList !== null ? (
                 BrandList.map((item, i) => {
@@ -39,7 +53,13 @@ const ProductList = () => {
               )}
             </select>
             <label className="form-label mt-3">Categories</label>
-            <select>
+            <select
+              value={Filter.categoryID}
+              onChange={async (e) => {
+                await inputOnChange("categoryID", e.target.value);
+              }}
+              className="form-control form-select"
+            >
               <option value="">Choose Category</option>
               {CategoryList !== null ? (
                 CategoryList.map((item, i) => {
@@ -51,7 +71,9 @@ const ProductList = () => {
                 <option></option>
               )}
             </select>
-            <label className="form-label mt-3">Maximum Price</label>
+            <label className="form-label mt-3">
+              Maximum Price {Filter.priceMax}
+            </label>
             <input
               min={0}
               max={1000000}

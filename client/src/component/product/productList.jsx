@@ -41,6 +41,15 @@ const ProductList = () => {
             <label className="form-label mt-3">Categories</label>
             <select>
               <option value="">Choose Category</option>
+              {CategoryList !== null ? (
+                CategoryList.map((item, i) => {
+                  return (
+                    <option value={item["_id"]}>{item["categoryName"]}</option>
+                  );
+                })
+              ) : (
+                <option></option>
+              )}
             </select>
             <label className="form-label mt-3">Maximum Price</label>
             <input

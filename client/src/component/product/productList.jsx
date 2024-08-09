@@ -75,6 +75,10 @@ const ProductList = () => {
               Maximum Price {Filter.priceMax}
             </label>
             <input
+              value={Filter.priceMax}
+              onChange={async (e) => {
+                await inputOnChange("priceMax", e.target.value);
+              }}
               min={0}
               max={1000000}
               step={1000}

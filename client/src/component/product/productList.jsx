@@ -92,8 +92,14 @@ const ProductList = () => {
               className="form-range"
             />
 
-            <label className="form-label mt-3">Minimum Price</label>
+            <label className="form-label mt-3">
+              Minimum Price {Filter.priceMin}
+            </label>
             <input
+              value={Filter.priceMin}
+              onChange={async (e) => {
+                await inputOnChange("priceMin", e.target.value);
+              }}
               min={0}
               max={1000000}
               step={1000}

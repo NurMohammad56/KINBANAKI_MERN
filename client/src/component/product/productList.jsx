@@ -5,7 +5,20 @@ import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings/build/star-ratings.js";
 
 const ProductList = () => {
-  const { ListProduct } = ProductStore();
+  const {
+    ListProduct,
+    BrandList,
+    BrandListRequest,
+    CategoryList,
+    CategoryListRequest,
+  } = ProductStore();
+
+  useEffect(() => {
+    (async () => {
+      BrandList === null ? await BrandListRequest() : null;
+      CategoryList === null ? await CategoryListRequest() : null;
+    })();
+  }, []);
 
   return (
     <div className="container mt-2">
@@ -15,6 +28,15 @@ const ProductList = () => {
             <label className="form-label mt-3">Brands</label>
             <select>
               <option value="">Choose Brand</option>
+              {BrandList !== null ? (
+                BrandList.map((item, i) => {
+                  return (
+                    <option value={item["_id"]}>{item["brandName"]}</option>
+                  );
+                })
+              ) : (
+                <option></option>
+              )}
             </select>
             <label className="form-label mt-3">Categories</label>
             <select>

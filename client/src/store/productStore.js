@@ -63,7 +63,7 @@ const ProductStore = create((set) => ({
   ListByFilterRequest: async (postBody) => {
     set({ ListProduct: null });
     let res = await axios.post(`/api/v1/listByFilter`, postBody);
-    if (res.data["status"] === "Success") {
+    if (res.data["status"] === "success") {
       set({ ListProduct: res.data["data"] });
     }
   },

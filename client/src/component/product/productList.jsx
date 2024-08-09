@@ -11,6 +11,7 @@ const ProductList = () => {
     BrandListRequest,
     CategoryList,
     CategoryListRequest,
+    ListByFilterRequest,
   } = ProductStore();
 
   let [Filter, SetFilter] = useState({
@@ -31,8 +32,11 @@ const ProductList = () => {
     (async () => {
       BrandList === null ? await BrandListRequest() : null;
       CategoryList === null ? await CategoryListRequest() : null;
+
+      let isFilterEmpty = Object.values(Filter).every((value) => value === "");
+      !isFilterEmpty ? await ListByFilterRequest(Filter) : null;
     })();
-  }, []);
+  }, [Filter]);
 
   return (
     <div className="container mt-2">

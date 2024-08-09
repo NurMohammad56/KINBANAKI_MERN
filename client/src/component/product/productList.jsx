@@ -40,7 +40,13 @@ const ProductList = () => {
         <div className="col-md-3 p-2">
           <div className="card vh-100 p-3 shadow-sm">
             <label className="form-label mt-3">Brands</label>
-            <select className="form-control form-select">
+            <select
+              value={Filter.brandID}
+              onChange={async (e) => {
+                await inputOnChange("brandID", e.target.value);
+              }}
+              className="form-control form-select"
+            >
               <option value="">Choose Brand</option>
               {BrandList !== null ? (
                 BrandList.map((item, i) => {

@@ -79,6 +79,13 @@ const ProductStore = create((set) => ({
     let res = await axios.get(`/api/v1/productDetails/${id}`);
     set({ ProductDetails: res.data["data"] });
   },
+
+  ReviewList: null,
+  ReviewListRequest: async (id) => {
+    set({ ReviewList: null });
+    let res = await axios.get(`/api/v1/productReviewList/${id}`);
+    set({ ReviewList: res.data["data"] });
+  },
 }));
 
 export default ProductStore;

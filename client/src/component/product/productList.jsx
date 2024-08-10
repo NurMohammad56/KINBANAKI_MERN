@@ -82,7 +82,7 @@ const ProductList = () => {
               )}
             </select>
             <label className="form-label mt-3">
-              Maximum Price {Filter.priceMax}
+              Maximum Price ${Filter.priceMax}
             </label>
             <input
               value={Filter.priceMax}
@@ -90,14 +90,14 @@ const ProductList = () => {
                 await inputOnChange("priceMax", e.target.value);
               }}
               min={0}
-              max={1000000}
+              max={100000}
               step={1000}
               type="range"
               className="form-range"
             />
 
             <label className="form-label mt-3">
-              Minimum Price {Filter.priceMin}
+              Minimum Price ${Filter.priceMin}
             </label>
             <input
               value={Filter.priceMin}
@@ -105,7 +105,7 @@ const ProductList = () => {
                 await inputOnChange("priceMin", e.target.value);
               }}
               min={0}
-              max={1000000}
+              max={100000}
               step={1000}
               type="range"
               className="form-range"

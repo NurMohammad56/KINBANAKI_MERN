@@ -72,6 +72,13 @@ const ProductStore = create((set) => ({
   SetSearchKeyword: async (keyword) => {
     set({ SearchKeyword: keyword });
   },
+
+  ProductDetails: null,
+  ProductDetailsRequest: async (id) => {
+    set({ ProductDetails: null });
+    let res = await axios.get(`/api/v1/productDetails/${id}`);
+    set({ ProductDetails: res.data["data"] });
+  },
 }));
 
 export default ProductStore;

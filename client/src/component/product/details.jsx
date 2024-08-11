@@ -41,6 +41,11 @@ const Details = () => {
                   <label className="bodySmal">Size</label>
                   <select className="form-control my-2 form-select">
                     <option value="">Size</option>
+                    {ProductDetails[0]["details"]["size"]
+                      .split(",")
+                      .map((item, i) => {
+                        return <option value={item}>{item}</option>;
+                      })}
                   </select>
                 </div>
                 <div className="col-4 p-2">

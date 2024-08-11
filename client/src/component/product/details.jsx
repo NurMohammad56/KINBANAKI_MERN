@@ -13,14 +13,16 @@ const Details = () => {
           <div className="row">
             <div className="col-md-7 p-3"></div>
             <div className="col-md-5 p-3">
-              <h4>title</h4>
-              <p className="text-muted bodySmal my-1">Category</p>
-              <p className="text-muted bodySmal my-1">Brand</p>
-              <p className="bodySmal mb-2 mt-1">shortDes</p>
-              <span>
-                <strike className="text-secondary">$price</strike>{" "}
-                $discountPrice{" "}
-              </span>
+              <h4>{ProductDetails[0]["title"]}</h4>
+              <p className="text-muted bodySmal my-1">
+                Category: {ProductDetails[0]["category"]["categoryName"]}
+              </p>
+              <p className="text-muted bodySmal my-1">
+                Brand: {ProductDetails[0]["brand"]["brandName"]}
+              </p>
+              <p className="bodySmal mb-2 mt-1">
+                {ProductDetails[0]["shortDes"]}
+              </p>
               <div className="row">
                 <div className="col-4 p-2">
                   <label className="bodySmal">Size</label>

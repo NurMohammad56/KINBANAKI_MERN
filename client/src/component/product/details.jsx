@@ -23,6 +23,19 @@ const Details = () => {
               <p className="bodySmal mb-2 mt-1">
                 {ProductDetails[0]["shortDes"]}
               </p>
+              {ProductDetails[0]["discount"] === true ? (
+                <span className="bodyXLarge">
+                  <strike className="text-secondary">
+                    {ProductDetails[0]["price"]}
+                  </strike>{" "}
+                  {ProductDetails[0]["discountPrice"]}
+                </span>
+              ) : (
+                <span className=" bodyXLarge">
+                  {ProductDetails[0]["price"]}
+                </span>
+              )}
+
               <div className="row">
                 <div className="col-4 p-2">
                   <label className="bodySmal">Size</label>

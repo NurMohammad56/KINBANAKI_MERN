@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductStore from "../../store/productStore";
 import DetailsSkeleton from "../../skeleton/details-skeleton";
 
 const Details = () => {
   const { ProductDetails, ReviewList } = ProductStore();
+  const [quantity, SetQuantity] = useState(1);
+  const increment = () => {
+    SetQuantity((quantity) => quantity + 1);
+  };
+  const decrement = () => {
+    SetQuantity((quantity) => quantity - 1);
+  };
   if (ProductDetails === null) {
     return <DetailsSkeleton />;
   } else {
@@ -62,13 +69,18 @@ const Details = () => {
                 <div className="col-4 p-2">
                   <label className="bodySmal">Quantity</label>
                   <div className="input-group my-2">
-                    <button className="btn btn-outline-secondary">-</button>
                     <input
+                      value={quantity}
                       type="text"
                       className="form-control bg-light text-center"
                       readOnly
                     />
-                    <button className="btn btn-outline-secondary">+</button>
+                    <button
+                      onClick={increment}
+                      className="btn btn-outline-secondary"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
                 <div className="col-4 p-2">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProductStore from "../../store/productStore";
 import DetailsSkeleton from "../../skeleton/details-skeleton";
 import parse from "html-react-parser";
+import ProductImage from "./productImage";
 
 const Details = () => {
   const { ProductDetails, ReviewList } = ProductStore();
@@ -19,7 +20,9 @@ const Details = () => {
       <div>
         <div className="container mt-1">
           <div className="row">
-            <div className="col-md-7 p-3"></div>
+            <div className="col-md-7 p-3">
+              <ProductImage />
+            </div>
             <div className="col-md-5 p-3">
               <h4>{ProductDetails[0]["title"]}</h4>
               <p className="text-muted bodySmal my-1">

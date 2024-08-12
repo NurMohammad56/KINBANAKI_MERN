@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProductStore from "../../store/productStore";
 import DetailsSkeleton from "../../skeleton/details-skeleton";
+import parse from "html-react-parser";
 
 const Details = () => {
   const { ProductDetails, ReviewList } = ProductStore();
@@ -136,7 +137,9 @@ const Details = () => {
                 role="tabpanel"
                 aria-labelledby="Speci-tab"
                 tabIndex="0"
-              ></div>
+              >
+                {parse(ProductDetails[0]["details"]["des"])}
+              </div>
               <div
                 className="tab-pane fade"
                 id="Review-tab-pane"

@@ -5,6 +5,7 @@ import ProductByBrand from "./pages/productByBrand.jsx";
 import ProductByCategory from "./pages/productByCategory.jsx";
 import ProductByKeyword from "./pages/productByKeyword";
 import ProductDetails from "./pages/productDetails.jsx";
+import AboutPage from "./pages/aboutPage.jsx";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/by-category/:id" element={<ProductByCategory />} />
           <Route path="/by-keyword/:Keyword" element={<ProductByKeyword />} />
           <Route path="/details/:id" element={<ProductDetails />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </BrowserRouter>
     </>

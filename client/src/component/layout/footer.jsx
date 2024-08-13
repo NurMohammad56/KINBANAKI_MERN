@@ -10,17 +10,22 @@ const Footer = () => {
             <div className="col-md-4">
               <h1 className="bodyMedium">Legals</h1>
               <p className="my-2">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/about">
                   About
                 </Link>
               </p>
               <p className="my-2">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/privacy">
                   Refund Policy
                 </Link>
               </p>
               <p className="my-2">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/refund">
+                  Refund
+                </Link>
+              </p>
+              <p className="my-2">
+                <Link className="nav-link" to="/terms">
                   Terms
                 </Link>
               </p>
@@ -28,17 +33,17 @@ const Footer = () => {
             <div className="col-md-4">
               <h1 className="bodyMedium">Information</h1>
               <p className="my-2">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/howToBuy">
                   How to buy
                 </Link>
               </p>
               <p className="my-2">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/contact">
                   Contact
                 </Link>
               </p>
               <p className="my-2">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/complain">
                   Complain
                 </Link>
               </p>

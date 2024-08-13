@@ -9,9 +9,15 @@ const featuresListService = async () => {
   }
 };
 
-// const legalService = async (req) => {
-//   console.log("hello world");
-// };
+const legalService = async (req) => {
+  try {
+    let type = req.params.type;
+    let data = await LegalModel.find({ type: type });
+    return { status: "Success", data: data };
+  } catch (e) {
+    return { status: "Failed", data: e }.toString();
+  }
+};
 
 module.exports = {
   featuresListService,

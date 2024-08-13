@@ -95,7 +95,7 @@ router.post("/paymentIPN/:trxID", paymentIPN);
 
 // Feature
 router.get("/featuresList", featuresList);
-// router.get("/legalDetails/:type", legalDetails);
+router.get("/legalDetails/:type", legalDetails);
 
 // Review
 router.post("/createReview", authVerification, createReview);

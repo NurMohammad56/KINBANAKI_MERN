@@ -20,7 +20,7 @@ const ProductDetails = () => {
       await ReviewListRequest(id);
       BrandList === null ? await ListByBrandRequest() : null;
     })();
-  }, []);
+  }, [id]);
 
   return (
     <Layout>

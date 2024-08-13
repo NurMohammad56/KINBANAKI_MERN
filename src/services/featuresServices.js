@@ -1,4 +1,5 @@
 const FeaturesModel = require("../model/FeaturesModel");
+const LegalModel = require("../model/LegalModel");
 const featuresListService = async () => {
   try {
     let data = await FeaturesModel.find();
@@ -8,6 +9,11 @@ const featuresListService = async () => {
   }
 };
 
+// const legalService = async (req) => {
+//   console.log("hello world");
+// };
+
 module.exports = {
   featuresListService,
+  legalService,
 };

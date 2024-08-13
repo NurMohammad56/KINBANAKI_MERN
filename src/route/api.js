@@ -42,7 +42,10 @@ const {
   invoiceList,
   invoiceProductList,
 } = require("../controller/invoiceController");
-const { featuresList } = require("../controller/feturesController");
+const {
+  featuresList,
+  legalDetails,
+} = require("../controller/feturesController");
 const authVerification = require("../middleware/authVerification");
 
 // Product
@@ -92,6 +95,7 @@ router.post("/paymentIPN/:trxID", paymentIPN);
 
 // Feature
 router.get("/featuresList", featuresList);
+// router.get("/legalDetails/:type", legalDetails);
 
 // Review
 router.post("/createReview", authVerification, createReview);

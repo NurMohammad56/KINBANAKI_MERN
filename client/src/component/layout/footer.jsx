@@ -51,8 +51,8 @@ const Footer = () => {
             <div className="col-md-4">
               <h1 className="bodyMedium">About</h1>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum{" "}
+                Our company was founded with the mission to provide the highest
+                quality products and services to our customers.
               </p>
               <img
                 className="w-75"

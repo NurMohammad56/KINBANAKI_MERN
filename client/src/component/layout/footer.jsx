@@ -16,12 +16,12 @@ const Footer = () => {
               </p>
               <p className="my-2">
                 <Link className="nav-link" to="/privacy">
-                  Refund Policy
+                  Privacy Policy
                 </Link>
               </p>
               <p className="my-2">
                 <Link className="nav-link" to="/refund">
-                  Refund
+                  Refund Policy
                 </Link>
               </p>
               <p className="my-2">

@@ -6,6 +6,12 @@ import ProductByCategory from "./pages/productByCategory.jsx";
 import ProductByKeyword from "./pages/productByKeyword";
 import ProductDetails from "./pages/productDetails.jsx";
 import AboutPage from "./pages/aboutPage.jsx";
+import RefundPage from "./pages/refundPage";
+import PrivacyPage from "./pages/privacyPage";
+import TermsPage from "./pages/termsPage";
+import HowToBuyPage from "./pages/howToBuyPage";
+import ContactPage from "./pages/contactPage";
+import ComplainPage from "./pages/complainPage";
 
 const App = () => {
   return (
@@ -18,6 +24,12 @@ const App = () => {
           <Route path="/by-keyword/:Keyword" element={<ProductByKeyword />} />
           <Route path="/details/:id" element={<ProductDetails />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/refund" element={<RefundPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/howToBuy" element={<HowToBuyPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/complain" element={<ComplainPage />} />
         </Routes>
       </BrowserRouter>
     </>

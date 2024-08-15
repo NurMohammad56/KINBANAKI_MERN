@@ -1,7 +1,9 @@
 import React from "react";
+import UserStore from "../../store/userStore";
 
 const SubmitButton = (props) => {
-  if (props.submit === false) {
+  let { isFormSubmit } = UserStore();
+  if (isFormSubmit === false) {
     return (
       <button onClick={props.onClick} type="submit" className={props.className}>
         {props.text}
@@ -10,7 +12,7 @@ const SubmitButton = (props) => {
   } else {
     return (
       <button disabled={true} className={props.className}>
-        <div className="spinner-border spinner-border-sm" role="status"></div>{" "}
+        <div className="spinner-border spinner-border-sm" role="status"></div>
         Processing...
       </button>
     );

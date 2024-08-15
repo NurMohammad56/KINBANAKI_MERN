@@ -12,15 +12,11 @@ const OtpForm = () => {
               A verification code will be sent the email address you provide
             </p>
             <input
-              type="email"
-              placeholder="Email Address"
+              type="text"
+              placeholder="Verification code"
               className="form-control"
             />
-            <SubmitButton
-              submit={false}
-              className="btn btn-success mt-3"
-              text="Next"
-            />
+            <SubmitButton className="btn btn-success mt-3" text="Submit" />
           </div>
         </div>
       </div>

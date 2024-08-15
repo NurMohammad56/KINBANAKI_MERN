@@ -1,5 +1,5 @@
 import React from "react";
-import SubmitButton from "../layout/submitButton";
+import SubmitButton from "./submitButton";
 
 const LoginForm = () => {
   return (
@@ -18,7 +18,7 @@ const LoginForm = () => {
             />
             <SubmitButton
               submit={false}
-              className="btn mt-3 btn-success"
+              className="btn btn-success mt-3"
               text="Next"
             />
           </div>

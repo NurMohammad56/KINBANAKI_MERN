@@ -1,5 +1,6 @@
 import React from "react";
-import SubmitButton from "../layout/submitButton";
+import SubmitButton from "./submitButton";
+
 const OtpForm = () => {
   return (
     <div className="container section">

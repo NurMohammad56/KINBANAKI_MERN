@@ -12,6 +12,8 @@ import TermsPage from "./pages/termsPage";
 import HowToBuyPage from "./pages/howToBuyPage";
 import ContactPage from "./pages/contactPage";
 import ComplainPage from "./pages/complainPage";
+import LoginPage from "./pages/loginPage";
+import OtpPage from "./pages/otpPage";
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
           <Route path="/howToBuy" element={<HowToBuyPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/complain" element={<ComplainPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/verify-otp" element={<OtpPage />} />
         </Routes>
       </BrowserRouter>
     </>

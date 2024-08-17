@@ -1,11 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/name-logo.svg";
 import ProductStore from "../../store/productStore";
 import UserStore from "../../store/userStore";
+import SubmitButton from "../user/submitButton";
 const AppNavBar = () => {
+  let nevigate = useNavigate();
   const { SearchKeyword, SetSearchKeyword } = ProductStore();
-  const { isLogin } = UserStore();
+  const { isLogin, UserLogoutRequest } = UserStore();
+  const Logout = async () => {
+    await UserLogoutRequest();
+    localStorage.clear();
+    sessionStorage.clear();
+    nevigate("/");
+  };
   return (
     <>
       <div className="container-fluid text-white p-2 bg-success">
@@ -119,13 +127,12 @@ const AppNavBar = () => {
             </Link>
             {isLogin() ? (
               <>
-                <Link
-                  type="button"
+                <SubmitButton
+                  onClick={Logout}
+                  text="Logout"
                   className="btn ms-3 btn-success d-flex"
-                  to="/logout"
-                >
-                  Logout
-                </Link>
+                />
+
                 <Link
                   type="button"
                   className="btn ms-3 btn-success d-flex"

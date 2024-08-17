@@ -3,6 +3,7 @@ import SubmitButton from "./submitButton";
 import UserStore from "../../store/userStore";
 import ValidationHelper from "../../utility/validationHelper";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const OtpForm = () => {
   const { OTPFormValue, OTPOnChange, VerifyLoginRequest } = UserStore();
@@ -13,7 +14,7 @@ const OtpForm = () => {
       toast.error("Valid Otp Required");
     } else {
       let res = await VerifyLoginRequest(OTPFormValue.otp);
-      res ? nevigate("/") : toast.error("Something Went Wrong");
+      res ? nevigate("/") : toast.error("Valid Otp Required");
     }
   };
   return (

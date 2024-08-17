@@ -4,8 +4,8 @@ import { getEmail, setEmail } from "../utility/utility";
 import Cookies from "js-cookie";
 
 const UserStore = create((set) => ({
-  isLogin:()=>{
-    return !! Cookies.get('token')
+  isLogin: () => {
+    return !!Cookies.get("token");
   },
 
   LoginFormValue: { email: "" },
@@ -41,6 +41,13 @@ const UserStore = create((set) => ({
     set({ isFormSubmit: true });
     let email = getEmail();
     let res = await axios.get(`/api/v1/verifyLogin/${email}/${otp}`);
+    set({ isFormSubmit: false });
+    return res.data["status"] === "Success";
+  },
+
+  UserLogoutRequest: async () => {
+    set({ isFormSubmit: true });
+    let res = await axios.get(`/api/v1/userLogout`);
     set({ isFormSubmit: false });
     return res.data["status"] === "Success";
   },

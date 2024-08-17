@@ -13,6 +13,16 @@ const UserStore = create((set) => ({
     }));
   },
 
+  OTPFormValue: { otp: "" },
+  OTPOnChange: (name, value) => {
+    set((state) => ({
+      OTPFormValue: {
+        ...state.OTPFormValue,
+        [name]: value,
+      },
+    }));
+  },
+
   isFormSubmit: false,
   OtpRequest: async (email) => {
     set({ isFormSubmit: true });

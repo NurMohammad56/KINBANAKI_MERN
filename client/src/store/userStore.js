@@ -1,9 +1,50 @@
 import create from "zustand";
 import axios from "axios";
-import { getEmail, setEmail } from "../utility/utility";
+import { getEmail, setEmail, unauthorized } from "../utility/utility";
 import Cookies from "js-cookie";
 
 const UserStore = create((set) => ({
+  ProfileFormm: {
+    cus_add: "",
+    cus_city: "",
+    cus_country: "",
+    cus_fax: "",
+    cus_name: "",
+    cus_phone: "",
+    cus_postcode: "",
+    cus_state: "",
+    ship_add: "",
+    ship_city: "",
+    ship_country: "",
+    ship_name: "",
+    ship_phone: "",
+    ship_postcode: "",
+    ship_state: "",
+  },
+  ProfileFromChange: (name, value) => {
+    set((state) => ({
+      ProfileFormm: {
+        ...state.ProfileFormm,
+        [name]: value,
+      },
+    }));
+  },
+
+  ProfileDetails: null,
+  ProfileDetailsRequest: async () => {
+    try {
+      let res = await axios.get(`/api/v1/readProfile`);
+      if (res.data["data"].length > 0) {
+        set({ ProfileDetails: res.data["data"][0] });
+        set({ ProfileFormm: res.data["data"][0] });
+      } else {
+        set({ ProfileDetails: [] });
+      }
+    } catch (e) {
+      unauthorized(e.response.status);
+    }
+  },
+
   isLogin: () => {
     return !!Cookies.get("token");
   },

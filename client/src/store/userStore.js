@@ -30,21 +30,6 @@ const UserStore = create((set) => ({
     }));
   },
 
-  ProfileDetails: null,
-  ProfileDetailsRequest: async () => {
-    try {
-      let res = await axios.get(`/api/v1/readProfile`);
-      if (res.data["data"].length > 0) {
-        set({ ProfileDetails: res.data["data"][0] });
-        set({ ProfileFormm: res.data["data"][0] });
-      } else {
-        set({ ProfileDetails: [] });
-      }
-    } catch (e) {
-      unauthorized(e.response.status);
-    }
-  },
-
   isLogin: () => {
     return !!Cookies.get("token");
   },

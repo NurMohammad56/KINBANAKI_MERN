@@ -1,10 +1,13 @@
 import React from "react";
 import ProfileForm from "../component/user/profileForm";
+import Layout from "./../component/layout/layout";
 
 const ProfilePage = () => {
   return (
     <div>
-      <ProfileForm />
+      <Layout>
+        <ProfileForm />
+      </Layout>
     </div>
   );
 };

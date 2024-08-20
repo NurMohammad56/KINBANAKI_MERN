@@ -6,14 +6,18 @@ import UserStore from "../../store/userStore";
 import SubmitButton from "../user/submitButton";
 const AppNavBar = () => {
   let nevigate = useNavigate();
+
   const { SearchKeyword, SetSearchKeyword } = ProductStore();
+
   const { isLogin, UserLogoutRequest } = UserStore();
+
   const Logout = async () => {
     await UserLogoutRequest();
     localStorage.clear();
     sessionStorage.clear();
     nevigate("/");
   };
+
   return (
     <>
       <div className="container-fluid text-white p-2 bg-success">

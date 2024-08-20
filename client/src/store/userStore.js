@@ -45,6 +45,16 @@ const UserStore = create((set) => ({
     }
   },
 
+  ProfileSaveRequest: async (PostBody) => {
+    try {
+      set({ ProfileDetails: null });
+      let res = await axios.get(`/api/v1/updateProfile`, PostBody);
+      return res.data["status"] === "Success";
+    } catch (e) {
+      unauthorized(e.response.status);
+    }
+  },
+
   isLogin: () => {
     return !!Cookies.get("token");
   },

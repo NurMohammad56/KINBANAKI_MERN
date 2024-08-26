@@ -1,7 +1,8 @@
-import React from "react";
+import { create } from "zustand";
+import axios from "axios";
 
-const CartStore = () => {
-  return <div></div>;
-};
+const CartStore = create((set) => ({
+  isCartSubmit: false,
+}));
 
 export default CartStore;

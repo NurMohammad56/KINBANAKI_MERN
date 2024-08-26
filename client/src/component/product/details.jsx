@@ -4,6 +4,7 @@ import DetailsSkeleton from "../../skeleton/details-skeleton";
 import parse from "html-react-parser";
 import ProductImage from "./productImage";
 import Reviews from "./reviews";
+import CartSubmitButton from "../user/cartSubmitButton";
 
 const Details = () => {
   const { ProductDetails, ReviewList } = ProductStore();
@@ -94,10 +95,16 @@ const Details = () => {
                     </button>
                   </div>
                 </div>
-                <div className="col-4 p-2">
-                  <button className="btn w-100 btn-success">Add to Cart</button>
+                <div className="col-5 p-2">
+                  <CartSubmitButton
+                    onClick={async () => {
+                      await Details[0]["_id"];
+                    }}
+                    className="btn w-100 btn-success"
+                    text="Add to Cart"
+                  />
                 </div>
-                <div className="col-4 p-2">
+                <div className="col-5 p-2">
                   <button className="btn w-100 btn-success">Add to Wish</button>
                 </div>
               </div>

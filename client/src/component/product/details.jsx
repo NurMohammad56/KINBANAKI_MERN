@@ -5,15 +5,26 @@ import parse from "html-react-parser";
 import ProductImage from "./productImage";
 import Reviews from "./reviews";
 import CartSubmitButton from "../user/cartSubmitButton";
+import CartStore from "../../store/cartStore";
+import { toast } from "react-hot-toast";
 
 const Details = () => {
-  const { ProductDetails, ReviewList } = ProductStore();
+  const { ProductDetails } = ProductStore();
+  const { CartForm, CartSaveRequest, CartListRequest, CartFormChange } =
+    CartStore();
   const [quantity, SetQuantity] = useState(1);
   const increment = () => {
     SetQuantity((quantity) => quantity + 1);
   };
   const decrement = () => {
     SetQuantity((quantity) => quantity - 1);
+  };
+  const AddCart = async (productID) => {
+    let res = await CartSaveRequest(CartForm, productID);
+    if (res) {
+      toast.success("Cart Item Success");
+      await CartListRequest();
+    }
   };
   if (ProductDetails === null) {
     return <DetailsSkeleton />;
@@ -98,7 +109,7 @@ const Details = () => {
                 <div className="col-5 p-2">
                   <CartSubmitButton
                     onClick={async () => {
-                      await Details[0]["_id"];
+                      await AddCart(ProductDetails[0][_id]);
                     }}
                     className="btn w-100 btn-success"
                     text="Add to Cart"

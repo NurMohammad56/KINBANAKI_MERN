@@ -10,15 +10,22 @@ import { toast } from "react-hot-toast";
 
 const Details = () => {
   const { ProductDetails } = ProductStore();
+
   const { CartForm, CartSaveRequest, CartListRequest, CartFormChange } =
     CartStore();
+
   const [quantity, SetQuantity] = useState(1);
+
   const increment = () => {
     SetQuantity((quantity) => quantity + 1);
+    CartFormChange("qty", quantity);
   };
+
   const decrement = () => {
     SetQuantity((quantity) => quantity - 1);
+    CartFormChange("qty", quantity);
   };
+
   const AddCart = async (productID) => {
     let res = await CartSaveRequest(CartForm, productID);
     if (res) {
@@ -83,7 +90,7 @@ const Details = () => {
                   <select
                     value={CartForm.color}
                     onChange={(e) => {
-                      CartFormChange("size", e.target.value);
+                      CartFormChange("color", e.target.value);
                     }}
                     className="form-control my-2 form-select"
                   >
@@ -121,7 +128,7 @@ const Details = () => {
                 <div className="col-5 p-2">
                   <CartSubmitButton
                     onClick={async () => {
-                      await AddCart(ProductDetails[0][_id]);
+                      await AddCart(ProductDetails[0]["_id"]);
                     }}
                     className="btn w-100 btn-success"
                     text="Add to Cart"

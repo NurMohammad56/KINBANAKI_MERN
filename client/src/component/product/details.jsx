@@ -63,8 +63,14 @@ const Details = () => {
               <div className="row">
                 <div className="col-4 p-2">
                   <label className="bodySmal">Size</label>
-                  <select className="form-control my-2 form-select">
-                    <option value="">Size</option>
+                  <select
+                    value={CartForm.size}
+                    onChange={(e) => {
+                      CartFormChange("size", e.target.value);
+                    }}
+                    className="form-control my-2 form-select"
+                  >
+                    <option>Size</option>
                     {ProductDetails[0]["details"]["size"]
                       .split(",")
                       .map((item, i) => {

@@ -80,7 +80,13 @@ const Details = () => {
                 </div>
                 <div className="col-4 p-2">
                   <label className="bodySmal">Color</label>
-                  <select className="form-control my-2 form-select">
+                  <select
+                    value={CartForm.color}
+                    onChange={(e) => {
+                      CartFormChange("size", e.target.value);
+                    }}
+                    className="form-control my-2 form-select"
+                  >
                     <option value="">Color</option>
                     {ProductDetails[0]["details"]["color"]
                       .split(",")

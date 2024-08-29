@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/name-logo.svg";
 import ProductStore from "../../store/productStore";
 import UserStore from "../../store/userStore";
 import SubmitButton from "../user/submitButton";
+import CartStore from "../../store/cartStore";
 const AppNavBar = () => {
   let nevigate = useNavigate();
 
   const { SearchKeyword, SetSearchKeyword } = ProductStore();
 
   const { isLogin, UserLogoutRequest } = UserStore();
+
+  const { CartCount, CartListRequest } = CartStore();
+
+  useEffect(() => {
+    (async () => {
+      if (isLogin()) {
+        await CartListRequest();
+      }
+    })();
+  }, []);
 
   const Logout = async () => {
     await UserLogoutRequest();
@@ -115,22 +126,27 @@ const AppNavBar = () => {
                 </svg>
               </Link>
             </div>
-            <Link
-              to="/cart"
-              type="button"
-              className="btn ms-2 btn-light position-relative"
-            >
-              <i className="bi text-dark bi-bag"></i>
-            </Link>
-            <Link
-              to="/wish"
-              type="button"
-              className="btn ms-2 btn-light d-flex"
-            >
-              <i className="bi text-dark bi-heart"></i>
-            </Link>
+
             {isLogin() ? (
               <>
+                <Link
+                  to="/cart"
+                  type="button"
+                  className="btn ms-2 btn-light position-relative"
+                >
+                  <i className="bi text-dark bi-bag"></i>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                    {CartCount}
+                    <span className="visually-hidden">unread messages</span>
+                  </span>
+                </Link>
+                <Link
+                  to="/wish"
+                  type="button"
+                  className="btn ms-2 btn-light d-flex"
+                >
+                  <i className="bi text-dark bi-heart"></i>
+                </Link>
                 <SubmitButton
                   onClick={Logout}
                   text="Logout"

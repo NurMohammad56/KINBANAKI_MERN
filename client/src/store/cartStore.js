@@ -4,7 +4,7 @@ import { unauthorized } from "./../utility/utility";
 
 const CartStore = create((set) => ({
   isCartSubmit: false,
-  CartForm: { productID: "", color: "1", qty: "", size: "" },
+  CartForm: { productID: "", color: "", size: "" },
   CartFormChange: (name, value) => {
     set((state) => ({
       CartForm: {
@@ -14,10 +14,11 @@ const CartStore = create((set) => ({
     }));
   },
 
-  CartSaveRequest: async (PostBody, productID) => {
+  CartSaveRequest: async (PostBody, productID, quantity) => {
     try {
       set({ isCartSubmit: true });
       PostBody.productID = productID;
+      PostBody.qty = quantity;
       let res = await axios.post(`/api/v1/saveCartList`, PostBody);
       return res.data["status"] === "Success";
     } catch (error) {

@@ -18,16 +18,14 @@ const Details = () => {
 
   const increment = () => {
     SetQuantity((quantity) => quantity + 1);
-    CartFormChange("qty", quantity);
   };
 
   const decrement = () => {
     SetQuantity((quantity) => quantity - 1);
-    CartFormChange("qty", quantity);
   };
 
   const AddCart = async (productID) => {
-    let res = await CartSaveRequest(CartForm, productID);
+    let res = await CartSaveRequest(CartForm, productID, quantity);
     if (res) {
       toast.success("Cart Item Success");
       await CartListRequest();

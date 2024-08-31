@@ -1,5 +1,6 @@
 import React from "react";
 import { create } from "zustand";
+import axios from "axios";
 import { unauthorized } from "../utility/utility";
 
 const WishStore = create((set) => ({
@@ -7,12 +8,12 @@ const WishStore = create((set) => ({
   WishSaveRequest: async (productID) => {
     try {
       set({ isWistSubmit: true });
-      let res = await axios.post(`/api/v1/saveWishList`, {
+      let res = await axios.post(`/api/v1/createWishList`, {
         productID: productID,
       });
-      return res.data["status"] === "Success";
-    } catch (error) {
-      unauthorized(error.response.status);
+      return res.data["status"] === "success";
+    } catch (e) {
+      unauthorized(e.response.status);
     } finally {
       set({ isWistSubmit: false });
     }
@@ -25,8 +26,8 @@ const WishStore = create((set) => ({
       let res = await axios.get(`/api/v1/wishList`);
       set({ WishList: res.data["data"] });
       set({ WishCount: res.data["data"].length });
-    } catch (error) {
-      unauthorized(error.response.status);
+    } catch (e) {
+      unauthorized(e.response.status);
     }
   },
 }));

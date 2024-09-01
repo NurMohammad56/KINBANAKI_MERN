@@ -27,8 +27,11 @@ const Details = () => {
   };
 
   const AddWish = async (productID) => {
-    await WishSaveRequest(productID);
-    await WishListRequest();
+    let res = await WishSaveRequest(productID);
+    if (!res) {
+      toast.success("Hello");
+      await WishListRequest();
+    }
   };
 
   const AddCart = async (productID) => {

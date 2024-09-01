@@ -1,13 +1,12 @@
-import React from "react";
-import { create } from "zustand";
+import create, { useStore } from "zustand";
 import axios from "axios";
-import { unauthorized } from "../utility/utility";
+import { unauthorized } from "../utility/utility.js";
 
 const WishStore = create((set) => ({
-  isWistSubmit: false,
+  isWishSubmit: false,
   WishSaveRequest: async (productID) => {
     try {
-      set({ isWistSubmit: true });
+      set({ isWishSubmit: true });
       let res = await axios.post(`/api/v1/createWishList`, {
         productID: productID,
       });
@@ -15,7 +14,7 @@ const WishStore = create((set) => ({
     } catch (e) {
       unauthorized(e.response.status);
     } finally {
-      set({ isWistSubmit: false });
+      set({ isWishSubmit: false });
     }
   },
 

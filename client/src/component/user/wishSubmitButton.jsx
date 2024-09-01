@@ -2,8 +2,8 @@ import React from "react";
 import WishStore from "../../store/wishStore";
 
 const WishSubmitButton = (props) => {
-  let { isWistSubmit } = WishStore();
-  if (isWistSubmit === false) {
+  let { isWishSubmit } = WishStore();
+  if (isWishSubmit === false) {
     return (
       <button onClick={props.onClick} type="submit" className={props.className}>
         {props.text}

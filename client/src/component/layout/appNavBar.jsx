@@ -5,6 +5,7 @@ import ProductStore from "../../store/productStore";
 import UserStore from "../../store/userStore";
 import SubmitButton from "../user/submitButton";
 import CartStore from "../../store/cartStore";
+import WishStore from "../../store/wishStore";
 const AppNavBar = () => {
   let nevigate = useNavigate();
 
@@ -13,11 +14,13 @@ const AppNavBar = () => {
   const { isLogin, UserLogoutRequest } = UserStore();
 
   const { CartCount, CartListRequest } = CartStore();
+  const { WishCount, WishListRequest } = WishStore();
 
   useEffect(() => {
     (async () => {
       if (isLogin()) {
         await CartListRequest();
+        await WishListRequest();
       }
     })();
   }, []);
@@ -143,9 +146,13 @@ const AppNavBar = () => {
                 <Link
                   to="/wish"
                   type="button"
-                  className="btn ms-2 btn-light d-flex"
+                  className="btn ms-3 btn-light position-relative"
                 >
                   <i className="bi text-dark bi-heart"></i>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {WishCount}
+                    <span className="visually-hidden">unread messages</span>
+                  </span>
                 </Link>
                 <SubmitButton
                   onClick={Logout}

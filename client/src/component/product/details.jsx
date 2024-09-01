@@ -6,18 +6,17 @@ import ProductImage from "./productImage";
 import Reviews from "./reviews";
 import CartSubmitButton from "../user/cartSubmitButton";
 import CartStore from "../../store/cartStore";
-import { toast } from "react-hot-toast";
 import WishStore from "../../store/wishStore";
 import WishSubmitButton from "../user/wishSubmitButton";
+import { toast } from "react-hot-toast";
 
 const Details = () => {
   const { ProductDetails } = ProductStore();
+  const [quantity, SetQuantity] = useState(1);
 
   const { CartForm, CartSaveRequest, CartListRequest, CartFormChange } =
     CartStore();
   const { WishSaveRequest, WishListRequest } = WishStore();
-
-  const [quantity, SetQuantity] = useState(1);
 
   const increment = () => {
     SetQuantity((quantity) => quantity + 1);
@@ -28,11 +27,8 @@ const Details = () => {
   };
 
   const AddWish = async (productID) => {
-    let res = await WishSaveRequest(productID);
-    if (res) {
-      toast.success("Wish Item Success");
-      await WishListRequest();
-    }
+    await WishSaveRequest(productID);
+    await WishListRequest();
   };
 
   const AddCart = async (productID) => {
@@ -42,6 +38,7 @@ const Details = () => {
       await CartListRequest();
     }
   };
+
   if (ProductDetails === null) {
     return <DetailsSkeleton />;
   } else {

@@ -7,7 +7,7 @@ import Reviews from "./reviews";
 import CartSubmitButton from "../user/cartSubmitButton";
 import CartStore from "../../store/cartStore";
 import WishStore from "../../store/wishStore";
-import WishSubmitButton from "../user/wishSubmitButton";
+import WishSubmitButton from "../wish/wishSubmitButton";
 import { toast } from "react-hot-toast";
 
 const Details = () => {

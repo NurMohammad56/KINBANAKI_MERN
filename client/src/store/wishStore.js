@@ -1,6 +1,7 @@
 import create, { useStore } from "zustand";
 import axios from "axios";
 import { unauthorized } from "../utility/utility.js";
+import WishList from "../component/wish/wishList.jsx";
 
 const WishStore = create((set) => ({
   isWishSubmit: false,
@@ -27,6 +28,15 @@ const WishStore = create((set) => ({
       set({ WishCount: res.data["data"].length });
     } catch (e) {
       unauthorized(e.response.status);
+    }
+  },
+
+  RemoveWishListRequest: async (productID) => {
+    try {
+      set({ WishList: null });
+      await axios.post("api/v1/removeWishList", { productID: productID });
+    } catch (error) {
+      unauthorized(error.response.status);
     }
   },
 }));

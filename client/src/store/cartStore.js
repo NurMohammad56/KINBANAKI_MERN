@@ -70,6 +70,18 @@ const CartStore = create((set) => ({
       unauthorized(error.response.status);
     }
   },
+
+  CreateInvoiceRequest: async () => {
+    try {
+      set({ isCartSubmit: true });
+      let res = await axios.get(`api/v1/createInvoice`);
+      window.location.href = res.data["data"]["GatewayPageURL"];
+    } catch (error) {
+      unauthorized(error.response.status);
+    } finally {
+      set({ isCartSubmit: false });
+    }
+  },
 }));
 
 export default CartStore;

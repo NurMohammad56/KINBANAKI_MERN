@@ -61,6 +61,15 @@ const CartStore = create((set) => ({
       unauthorized(error.response.status);
     }
   },
+
+  RemoveCartList: async (cartID) => {
+    try {
+      set({ CartList: null });
+      await axios.post(`api/v1/removeCartList`, { _id: cartID });
+    } catch (error) {
+      unauthorized(error.response.status);
+    }
+  },
 }));
 
 export default CartStore;

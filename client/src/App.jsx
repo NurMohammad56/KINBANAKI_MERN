@@ -16,6 +16,7 @@ import LoginPage from "./pages/loginPage";
 import OtpPage from "./pages/otpPage";
 import ProfilePage from "./pages/profilePage.jsx";
 import WishPage from "./pages/wishPage.jsx";
+import CartPage from "./pages/cartPage.jsx";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/verify-otp" element={<OtpPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/wish" element={<WishPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </BrowserRouter>
     </>

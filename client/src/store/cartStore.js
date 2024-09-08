@@ -35,7 +35,7 @@ const CartStore = create((set) => ({
   CartPayableTotal: 0,
   CartListRequest: async () => {
     try {
-      let res = await axios.get(`/api/v1/cartList`);
+      let res = await axios.get(`/api/v1/CartList`);
       set({ CartList: res.data["data"] });
       set({ CartCount: res.data["data"].length });
       let total = 0;
@@ -57,27 +57,27 @@ const CartStore = create((set) => ({
       set({ CartTotal: total });
       set({ CartVatTotal: vat });
       set({ CartPayableTotal: payable });
-    } catch (error) {
-      unauthorized(error.response.status);
+    } catch (e) {
+      unauthorized(e.response.status);
     }
   },
 
   RemoveCartListRequest: async (cartID) => {
     try {
       set({ CartList: null });
-      await axios.post(`api/v1/removeCartList`, { _id: cartID });
-    } catch (error) {
-      unauthorized(error.response.status);
+      await axios.post(`/api/v1/RemoveCartList`, { _id: cartID });
+    } catch (e) {
+      unauthorized(e.response.status);
     }
   },
 
   CreateInvoiceRequest: async () => {
     try {
       set({ isCartSubmit: true });
-      let res = await axios.get(`api/v1/createInvoice`);
+      let res = await axios.get(`/api/v1/CreateInvoice`);
       window.location.href = res.data["data"]["GatewayPageURL"];
-    } catch (error) {
-      unauthorized(error.response.status);
+    } catch (e) {
+      unauthorized(e.response.status);
     } finally {
       set({ isCartSubmit: false });
     }

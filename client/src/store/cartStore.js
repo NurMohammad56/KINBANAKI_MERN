@@ -32,7 +32,7 @@ const CartStore = create((set) => ({
   CartCount: 0,
   CartTotal: 0,
   CartVatTotal: 0,
-  CartPayable: 0,
+  CartPayableTotal: 0,
   CartListRequest: async () => {
     try {
       let res = await axios.get(`/api/v1/cartList`);
@@ -56,13 +56,13 @@ const CartStore = create((set) => ({
       payable = vat + total;
       set({ CartTotal: total });
       set({ CartVatTotal: vat });
-      set({ CartPayable: payable });
+      set({ CartPayableTotal: payable });
     } catch (error) {
       unauthorized(error.response.status);
     }
   },
 
-  RemoveCartList: async (cartID) => {
+  RemoveCartListRequest: async (cartID) => {
     try {
       set({ CartList: null });
       await axios.post(`api/v1/removeCartList`, { _id: cartID });

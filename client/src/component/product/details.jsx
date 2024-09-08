@@ -4,11 +4,11 @@ import DetailsSkeleton from "../../skeleton/details-skeleton";
 import parse from "html-react-parser";
 import ProductImage from "./productImage";
 import Reviews from "./reviews";
-import CartSubmitButton from "../user/cartSubmitButton";
 import CartStore from "../../store/cartStore";
 import WishStore from "../../store/wishStore";
 import WishSubmitButton from "../wish/wishSubmitButton";
 import { toast } from "react-hot-toast";
+import CartSubmitButton from "./../cart/cartSubmitButton";
 
 const Details = () => {
   const { ProductDetails } = ProductStore();

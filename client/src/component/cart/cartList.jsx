@@ -62,12 +62,12 @@ const CartList = () => {
                           {parseInt(price) * parseInt(item["qty"])}
                         </p>
                       </div>
-                      {/* <button
+                      <button
                         onClick={() => remove(item["_id"])}
                         className="btn btn-sm btn-outline-danger"
                       >
                         <i className="bi bi-trash"></i>
-                      </button> */}
+                      </button>
                     </li>
                   );
                 })}

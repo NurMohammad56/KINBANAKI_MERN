@@ -72,7 +72,7 @@ const CartList = () => {
                   );
                 })}
               </ul>
-              {/* <div className="my-4">
+              <div className="my-4">
                 <ul className="list-group bg-transparent  list-group-flush">
                   <li className="list-group-item bg-transparent h6 m-0 text-dark">
                     <span className="float-end">
@@ -80,7 +80,7 @@ const CartList = () => {
                       {CartTotal}{" "}
                     </span>
                   </li>
-                  <li className="list-group-item bg-transparent h6 m-0 text-dark">
+                  {/* <li className="list-group-item bg-transparent h6 m-0 text-dark">
                     <span className="float-end">
                       {" "}
                       Vat(5%): <i className="bi bi-currency-dollar" />
@@ -104,9 +104,9 @@ const CartList = () => {
                         className="btn px-5 mt-2 btn-success"
                       />
                     </span>
-                  </li>
+                  </li> */}
                 </ul>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

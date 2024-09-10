@@ -85,11 +85,40 @@ const AppNavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="nav06">
             <ul className="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 ms-lg-3">
               <span className="nav-item me-4">
-                <Link className="nav-link" to="/">
-                  Home
+                <Link className="btn mx-2 btn-light position-relative" to="/">
+                  <i className="bi bi-house"></i>
+                </Link>
+                <Link
+                  to="/cart"
+                  type="button"
+                  className="btn ms-1 btn-light position-relative"
+                >
+                  <i className="bi text-dark bi-bag"></i>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                    {CartCount}
+                  </span>
+                </Link>
+                <Link
+                  to="/wish"
+                  type="button"
+                  className="btn ms-3 btn-light position-relative"
+                >
+                  <i className="bi text-dark bi-heart"></i>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                    {WishCount}
+                  </span>
+                </Link>
+
+                <Link
+                  to="/orders"
+                  type="button"
+                  className="btn ms-3 btn-light position-relative"
+                >
+                  <i className="bi text-dark  bi-truck"></i>
                 </Link>
               </span>
             </ul>
@@ -132,28 +161,6 @@ const AppNavBar = () => {
 
             {isLogin() ? (
               <>
-                <Link
-                  to="/cart"
-                  type="button"
-                  className="btn ms-2 btn-light position-relative"
-                >
-                  <i className="bi text-dark bi-bag"></i>
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                    {CartCount}
-                    <span className="visually-hidden">unread messages</span>
-                  </span>
-                </Link>
-                <Link
-                  to="/wish"
-                  type="button"
-                  className="btn ms-3 btn-light position-relative"
-                >
-                  <i className="bi text-dark bi-heart"></i>
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    {WishCount}
-                    <span className="visually-hidden">unread messages</span>
-                  </span>
-                </Link>
                 <SubmitButton
                   onClick={Logout}
                   text="Logout"

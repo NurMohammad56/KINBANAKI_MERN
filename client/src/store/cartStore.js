@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 import { unauthorized } from "./../utility/utility";
+import InvoiceList from "../component/invoice/invoiceList";
 
 const CartStore = create((set) => ({
   isCartSubmit: false,
@@ -74,7 +75,7 @@ const CartStore = create((set) => ({
   CreateInvoiceRequest: async () => {
     try {
       set({ isCartSubmit: true });
-      let res = await axios.get(`/api/v1/CreateInvoice`);
+      let res = await axios.get(`/api/v1/createInvoice`);
       window.location.href = res.data["data"]["GatewayPageURL"];
     } catch (e) {
       unauthorized(e.response.status);
@@ -83,14 +84,13 @@ const CartStore = create((set) => ({
     }
   },
 
-  InvoiceListt: null,
+  InvoiceList: null,
   InvoiceListRequest: async () => {
     try {
       let res = await axios.get(`/api/v1/invoiceList`);
-      set({ InvoiceListt: res.data["data"] });
-    } catch (error) {
-      unauthorized(error.response.status);
-    } finally {
+      set({ InvoiceList: res.data["data"] });
+    } catch (e) {
+      unauthorized(e.response.status);
     }
   },
 }));

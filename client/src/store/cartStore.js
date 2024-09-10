@@ -82,6 +82,17 @@ const CartStore = create((set) => ({
       set({ isCartSubmit: false });
     }
   },
+
+  InvoiceListt: null,
+  InvoiceListRequest: async () => {
+    try {
+      let res = await axios.get(`/api/v1/invoiceList`);
+      set({ InvoiceListt: res.data["data"] });
+    } catch (error) {
+      unauthorized(error.response.status);
+    } finally {
+    }
+  },
 }));
 
 export default CartStore;

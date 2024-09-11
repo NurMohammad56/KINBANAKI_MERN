@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
 import { unauthorized } from "./../utility/utility";
-import InvoiceList from "../component/invoice/invoiceList";
 
 const CartStore = create((set) => ({
   isCartSubmit: false,
@@ -91,6 +90,16 @@ const CartStore = create((set) => ({
       set({ InvoiceList: res.data["data"] });
     } catch (e) {
       unauthorized(e.response.status);
+    }
+  },
+
+  InvoiceDetails: null,
+  InvoiceDetailsRequest: async (id) => {
+    try {
+      let res = await axios.get(`api/v1/invoiceProductList/${id}`);
+      set({ InvoiceDetails: res.data["data"] });
+    } catch (error) {
+      unauthorized(error.response.status);
     }
   },
 }));

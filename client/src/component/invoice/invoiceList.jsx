@@ -12,7 +12,7 @@ const InvoiceList = () => {
       await InvoiceListRequest();
     })();
   }, []);
-  console.log(InvoiceList);
+
   if (InvoiceList == null) {
     return <CartSkeleton />;
   } else if (InvoiceList.length === 0) {
